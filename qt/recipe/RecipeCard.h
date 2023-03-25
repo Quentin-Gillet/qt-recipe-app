@@ -8,18 +8,23 @@
 #include <QWidget>
 #include <QLabel>
 #include <QPixmap>
-#include <QVBoxLayout>
+#include <QBoxLayout>
 #include "../widgets/QClickableImage.h"
 
-class RecipeCard : public QLabel
+class RecipeCard : public QWidget
 {
 Q_OBJECT
 
 public:
-    explicit RecipeCard(QWidget *parent = nullptr);
+    explicit RecipeCard(QString url, QWidget *parent = nullptr);
+    void setText(QString& text);
+    ~RecipeCard();
+private:
+    QString text;
 
 private slots:
     void clicked();
+
 };
 
 

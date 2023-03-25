@@ -5,17 +5,17 @@
 #ifndef COOKING_PROJECT_MEASURE_H
 #define COOKING_PROJECT_MEASURE_H
 
-#include <string>
-#include <utility>
+#include <QString>
+#include <QJsonObject>
 
 class Measure
 {
 public:
     double amount;
-    std::string unitLong;
-    std::string unitShort;
+    QString unitLong;
+    QString unitShort;
 
-    Measure(double, std::string, std::string);
+    Measure(const QJsonObject&);
 };
 
 

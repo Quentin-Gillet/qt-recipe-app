@@ -21,7 +21,8 @@
 class Scrapper: public QObject
 {
 public:
-    QList<Recipe> getRandomRecipe(int count = 10);
+    QList<Recipe> getRandomRecipe(int count = 9);
+    QList<Recipe> searchRecipe(QString& search, int count = 9);
     static QJsonObject objectFromString(const QString& in);
     Scrapper();
 private:

@@ -16,12 +16,12 @@ public:
     bool vegan;
     bool veryPopular;
 
-    std::string title;
-    std::string image;
+    QString title;
+    QString image;
     int servings;
     int readyInMinutes;
     QStringList dishTypes;
-    std::string instructions;
+    QString instructions;
 
     QList<Ingredient> ingredients;
 

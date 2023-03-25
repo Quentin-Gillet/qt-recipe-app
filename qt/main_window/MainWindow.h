@@ -3,7 +3,9 @@
 
 #include <QMainWindow>
 #include <QLabel>
-#include "../recipe/RecipeCard.h"
+#include <QPushButton>
+#include "../recipe/RecipeGrid.h"
+#include "../dialogs/SearchDialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,5 +21,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    RecipeGrid* recipeGrid;
+
+public slots:
+    void displaySearchDialog();
+    void performSearch(QString result);
 };
 #endif // MAINWINDOW_H

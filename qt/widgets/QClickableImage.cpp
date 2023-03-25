@@ -14,29 +14,25 @@ QClickableImage::QClickableImage(QString* url, QWidget *parent)
     QUrl imageUrl(*url);
     fileDownloader = new FileDownloader(imageUrl, this);
 
-    QTimer timer;
-    timer.setSingleShot(true);
-    QEventLoop loop;
+    loadingGif = new QMovie(":loading.gif");
+    this->setMovie(loadingGif);
+    loadingGif->start();
 
     QObject::connect(fileDownloader, &FileDownloader::downloaded,
-                     &loop, &QEventLoop::quit);
-    QObject::connect(&timer, &QTimer::timeout,
-                     &loop, &QEventLoop::quit);
-    timer.start(1000);
-    loop.exec();
-
-    if(!timer.isActive())
-    {
-        qDebug() << "Error while loading " << *url;
-        return;
-    }
-
-    image.loadFromData(fileDownloader->downloadedData());
-    this->setPixmap(image.scaled(this->width(), this->height(), Qt::KeepAspectRatio));
+                     this, &QClickableImage::updatePixmap);
 }
 
 
 void QClickableImage::mousePressEvent(QMouseEvent *event)
 {
     emit clicked();
+}
+
+void QClickableImage::updatePixmap()
+{
+    loadingGif->stop();
+    delete loadingGif;
+
+    image.loadFromData(fileDownloader->downloadedData());
+    this->setPixmap(image.scaled(this->width(), this->height(), Qt::KeepAspectRatio));
 }

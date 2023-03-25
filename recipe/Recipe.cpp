@@ -9,11 +9,11 @@ Recipe::Recipe(const QJsonObject &recipeJson)
     this->vegetarian = recipeJson["vegetarian"].toBool();
     this->vegan = recipeJson["vegan"].toBool();
     this->veryPopular = recipeJson["veryPopular"].toBool();
-    this->title = recipeJson["title"].toString().toStdString();
-    this->image = recipeJson["image"].toString().toStdString();
+    this->title = recipeJson["title"].toString();
+    this->image = recipeJson["image"].toString();
     this->servings = recipeJson["servings"].toInt();
     this->readyInMinutes = recipeJson["readyInMinutes"].toInt();
-    this->instructions = recipeJson["instructions"].toString().toStdString();
+    this->instructions = recipeJson["instructions"].toString();
     //dishTypes from json array
     QJsonArray dishTypesJson = recipeJson["dishTypes"].toArray();
     for (auto && i : dishTypesJson)

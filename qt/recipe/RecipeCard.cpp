@@ -6,25 +6,29 @@
 #include "RecipeCard.h"
 
 
-RecipeCard::RecipeCard(QWidget *parent) :
-        QLabel(parent)
+RecipeCard::RecipeCard(QString url, QWidget *parent) :
+        QWidget(parent)
 {
-    auto* layout = new QVBoxLayout();
+    auto* layout = new QBoxLayout(QBoxLayout::TopToBottom);
     setLayout(layout);
 
-    auto* url = new QString("https://www.inspiredtaste.net/wp-content/uploads/2018/12/Sauteed-Zucchini-Recipe-1-1200.jpg");
-    auto* image = new QClickableImage(url, this);
+    auto* image = new QClickableImage(&url, this);
     QObject::connect(image, &QClickableImage::clicked,
                      this, &RecipeCard::clicked);
 
     layout->addWidget(image);
-
-    auto* label = new QLabel("TEST");
-    layout->addWidget(label);
-
 }
 
 void RecipeCard::clicked()
 {
     qDebug() << "test";
 }
+
+void RecipeCard::setText(QString& text)
+{
+    this->text = text;
+    auto *label = new QLabel(this->text);
+    this->layout()->addWidget(label);
+}
+
+RecipeCard::~RecipeCard(){}

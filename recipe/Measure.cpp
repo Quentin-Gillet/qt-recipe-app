@@ -4,9 +4,9 @@
 
 #include "Measure.h"
 
-Measure::Measure(double amount, std::string unitLong, std::string unitShort)
+Measure::Measure(const QJsonObject & measures)
 {
-    this->amount = amount;
-    this->unitLong = std::move(unitLong);
-    this->unitShort = std::move(unitShort);
+    this->amount = measures["amount"].toDouble();
+    this->unitLong = measures["unitLong"].toString();
+    this->unitShort = measures["unitShort"].toString();
 }

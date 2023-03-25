@@ -12,18 +12,12 @@ QJsonObject Scrapper::objectFromString(const QString &in)
 
     // check validity of the document
     if (!doc.isNull())
-    {
         if (doc.isObject())
-        {
             obj = doc.object();
-        } else
-        {
+        else
             qDebug() << "Document is not an object" << "\n";
-        }
-    } else
-    {
+    else
         qDebug() << "Invalid JSON...\n" << in << "\n";
-    }
 
     return obj;
 }
@@ -33,6 +27,22 @@ Scrapper::Scrapper()
     manager = new QNetworkAccessManager();
 }
 
+QList<Recipe> Scrapper::searchRecipe(QString& search, int count)
+{
+    QString url = BASE_URL "complexSearch?number=" + QString::number(count) + QString("&query=" + search)
+                                                                              + "&apiKey=" API_KEY
+                                                                              + "&addRecipeInformation=true";
+    QString response = makeRequest(url);
+    QJsonObject obj = objectFromString(response);
+    QJsonArray recipes = obj["results"].toArray();
+    QList<Recipe> recipeList;
+    for(auto && i : recipes)
+    {
+        Recipe recipe = Recipe(i.toObject());
+        recipeList.append(recipe);
+    }
+    return recipeList;
+}
 
 QList<Recipe> Scrapper::getRandomRecipe(int count)
 {

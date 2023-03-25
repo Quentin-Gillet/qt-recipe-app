@@ -23,7 +23,11 @@ set(PROJECT_SOURCES
         recipe/Recipe.cpp
         scrapper/Scrapper.cpp
         qt/recipe/RecipeCard.cpp
-        qt/recipe/RecipeCard.h qt/widgets/QClickableImage.h qt/widgets/QClickableImage.cpp qt/tools/FileDownloader.h qt/tools/FileDownloader.cpp)
+        qt/recipe/RecipeCard.h
+        qt/widgets/QClickableImage.h
+        qt/widgets/QClickableImage.cpp
+        qt/tools/FileDownloader.h
+        qt/tools/FileDownloader.cpp qt/recipe/RecipeGrid.cpp qt/recipe/RecipeGrid.h qt/tools/Tools.cpp qt/tools/Tools.h qt/dialogs/SearchDialog.cpp qt/dialogs/SearchDialog.h)
 
 qt_add_executable(CookingApp
     MANUAL_FINALIZATION
