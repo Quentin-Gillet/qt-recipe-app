@@ -9,7 +9,7 @@ Recipe::Recipe(const QJsonObject &recipeJson)
     this->vegetarian = recipeJson["vegetarian"].toBool();
     this->vegan = recipeJson["vegan"].toBool();
     this->veryPopular = recipeJson["veryPopular"].toBool();
-    this->title = recipeJson["title"].toString();
+    this->title = recipeJson["title"].toString().split(",")[0];
     this->imageUrl = recipeJson["image"].toString();
     this->servings = recipeJson["servings"].toInt();
     this->readyInMinutes = recipeJson["readyInMinutes"].toInt();
@@ -25,7 +25,7 @@ Recipe::Recipe(const QJsonObject &recipeJson)
     for (int i = 0; i < ingredientsJson.size(); i++)
     {
         QJsonObject ingredientJson = ingredientsJson[i].toObject();
-        Ingredient ingredient(ingredientJson);
+        Ingredient* ingredient = new Ingredient(ingredientJson);
         this->ingredients.append(ingredient);
     }
 }

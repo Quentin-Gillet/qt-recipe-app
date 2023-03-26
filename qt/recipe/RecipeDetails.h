@@ -11,6 +11,7 @@
 #include <QBoxLayout>
 #include <QScrollArea>
 #include <QPushButton>
+#include "../dialogs/IngredientsDialog.h"
 #include "../../recipe/Recipe.h"
 
 class RecipeDetails: public QWidget
@@ -18,6 +19,8 @@ class RecipeDetails: public QWidget
     Q_OBJECT
 public:
     explicit RecipeDetails(Recipe* recipe, QWidget* parent = nullptr);
+private:
+    Recipe *recipe;
 private slots:
     void closeWindow();
     void addToFavourite();

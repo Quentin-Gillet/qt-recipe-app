@@ -28,7 +28,7 @@ public:
     QStringList dishTypes;
     QString instructions;
 
-    QList<Ingredient> ingredients;
+    QList<Ingredient*> ingredients;
 
     FileDownloader* fileDownloader;
 

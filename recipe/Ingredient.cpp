@@ -6,21 +6,15 @@
 
 Ingredient::Ingredient(const QJsonObject &ingredient)
 {
-    this->amount = ingredient["amount"].toInt();
-    this->consistency = ingredient["consistency"].toString();
     this->name = ingredient["name"].toString();
     this->nameClean = ingredient["nameClean"].toString();
     this->image = ingredient["image"].toString();
 
-    QJsonArray measures = ingredient["measures"].toArray();
-    for (auto && i : measures)
-    {
-        QJsonObject jsonMeasure = i.toObject()["metric"].toObject();
-        Measure measure (jsonMeasure);
-    }
+    QJsonObject measureObject = ingredient["measures"].toObject()["metric"].toObject();
+    this->measure = new Measure(measureObject);
 }
 
 Ingredient::~Ingredient()
 {
-    this->measures.clear();
+    delete measure;
 }

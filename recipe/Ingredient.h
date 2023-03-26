@@ -16,12 +16,10 @@
 class Ingredient
 {
 public:
-    int amount;
-    QString consistency;
     QString name;
     QString nameClean;
     QString image;
-    QList<Measure> measures;
+    Measure* measure;
 
     explicit Ingredient(const QJsonObject &ingredient);
     ~Ingredient();

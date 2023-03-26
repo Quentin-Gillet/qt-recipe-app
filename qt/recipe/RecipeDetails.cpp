@@ -6,6 +6,7 @@
 
 RecipeDetails::RecipeDetails(Recipe* recipe, QWidget* parent)
 {
+    this->recipe = recipe;
     setFixedSize(900, 700);
     setWindowTitle(recipe->title);
 
@@ -17,12 +18,24 @@ RecipeDetails::RecipeDetails(Recipe* recipe, QWidget* parent)
     topImage->setPixmap(recipe->imagePixmap);
     boxLayout->addWidget(topImage);
 
+    QBoxLayout* titleLayout = new QBoxLayout(QBoxLayout::LeftToRight);
     QLabel* recipeTitle = new QLabel(recipe->title);
     recipeTitle->setStyleSheet("QLabel {font-size: 30px; text-decoration: underline;}");
-    boxLayout->addWidget(recipeTitle, 0, Qt::AlignHCenter);
+    //recipeTitle->setWordWrap(true);
+    recipeTitle->setScaledContents(true);
+    //recipeTitle->setSizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Expanding);
+    //recipeTitle->setFixedWidth(this->width() - 130);
+    titleLayout->addWidget(recipeTitle, 500, Qt::AlignHCenter);
+    if(recipe->veryPopular)
+    {
+        QLabel* popularLabel = new QLabel("POPULAR!");
+        popularLabel->setStyleSheet("QLabel {font-size: 24px; font-style: italic;color:red; border-radius: 15px;"
+                                    " background-color: yellow;}");
+        titleLayout->addWidget(popularLabel, 0, Qt::AlignRight);
+    }
+    boxLayout->addLayout(titleLayout);
 
     QBoxLayout* instructionLayout = new QBoxLayout(QBoxLayout::TopToBottom);
-
     QLabel* instructionTextLabel = new QLabel("Instruction:");
     instructionTextLabel->setStyleSheet("QLabel {text-decoration: underline;}");
     instructionLayout->addWidget(instructionTextLabel, 50);
@@ -36,12 +49,17 @@ RecipeDetails::RecipeDetails(Recipe* recipe, QWidget* parent)
     instructionsLabel->setWordWrap(true);
     scrollArea->setWidget(instructionsLabel);
     instructionLayout->addWidget(scrollArea, 0, Qt::AlignHCenter);
-    boxLayout->addLayout(instructionLayout);
+    boxLayout->addLayout(instructionLayout, 50);
 
     QPushButton* closeButton = new QPushButton("Close");
     closeButton->setDefault(true);
     QPushButton* addToFavouriteButton = new QPushButton("Add to favourite");
     QPushButton* ingredientsButton = new QPushButton("Ingredient list");
+    if(recipe->ingredients.count() == 0)
+    {
+        ingredientsButton->setDisabled(true);
+        ingredientsButton->setText("No ingredients");
+    }
     QBoxLayout* buttonLayout = new QBoxLayout(QBoxLayout::RightToLeft);
     buttonLayout->addWidget(closeButton);
     buttonLayout->addWidget(addToFavouriteButton);
@@ -71,5 +89,6 @@ void RecipeDetails::addToFavourite()
 
 void RecipeDetails::seeIngredients()
 {
-
+    IngredientsDialog* ingredientsDialog = new IngredientsDialog(this->recipe, this);
+    ingredientsDialog->show();
 }
