@@ -62,6 +62,8 @@
     </property>
     <addaction name="actionSearch"/>
     <addaction name="actionExplore"/>
+    <addaction name="separator"/>
+    <addaction name="actionFavourite"/>
    </widget>
    <addaction name="menuRecipe"/>
   </widget>
@@ -73,6 +75,11 @@
   <action name="actionExplore">
    <property name="text">
     <string>Explore</string>
+   </property>
+  </action>
+  <action name="actionFavourite">
+   <property name="text">
+    <string>Favourite</string>
    </property>
   </action>
  </widget>

@@ -15,7 +15,7 @@
 #include <QEventLoop>
 #include <vector>
 
-#define API_KEY "fed97457eab24db9b9e334767d0cf434"
+#define API_KEY "f53f8f8706404344bde83f7abb700593"
 #define BASE_URL "https://api.spoonacular.com/recipes/"
 
 class Scrapper: public QObject

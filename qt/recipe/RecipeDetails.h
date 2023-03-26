@@ -18,6 +18,10 @@ class RecipeDetails: public QWidget
     Q_OBJECT
 public:
     explicit RecipeDetails(Recipe* recipe, QWidget* parent = nullptr);
+private slots:
+    void closeWindow();
+    void addToFavourite();
+    void seeIngredients();
 };
 
 
