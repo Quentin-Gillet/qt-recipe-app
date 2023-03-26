@@ -40,10 +40,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::performSearch(QString searchQuery)
+void MainWindow::performSearch(const QString& searchQuery, const QString& mealDiet, int maxCalories)
 {
     Scrapper scrapper;
-    QList<Recipe> recipes = scrapper.searchRecipe(searchQuery);
+    QList<Recipe> recipes = scrapper.searchRecipe(searchQuery, mealDiet, maxCalories);
     recipeGrid->clearRecipeGrid();
     recipeGrid->generateRecipeGrid(recipes);
 }
@@ -51,6 +51,13 @@ void MainWindow::performSearch(QString searchQuery)
 void MainWindow::displaySearchDialog()
 {
     SearchDialog* searchDialog = new SearchDialog(this);
-    searchDialog->open(this, SLOT(performSearch(QString)));
+    int resultCode = searchDialog->exec();
+    if(resultCode == 1)
+    {
+        performSearch(searchDialog->searchInput->text(),
+                      searchDialog->dietRadioButtonGroup->checkedButton()->text(),
+                      searchDialog->maxCaloriesSlider->value());
+    }
+    delete searchDialog;
 }
 

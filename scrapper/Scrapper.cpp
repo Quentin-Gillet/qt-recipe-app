@@ -27,10 +27,14 @@ Scrapper::Scrapper()
     manager = new QNetworkAccessManager();
 }
 
-QList<Recipe> Scrapper::searchRecipe(QString& search, int count)
+QList<Recipe> Scrapper::searchRecipe(const QString& search, const QString& diet, int maxCalories, int count)
 {
+    QString dietParameter = !diet.compare("All") ? "" : "&diet=" + diet.toLower();
+    QString maxCaloriesParameter = maxCalories == 0 ? "" : "&maxCalories=" + QString::number(maxCalories);
     QString url = BASE_URL "complexSearch?number=" + QString::number(count) + QString("&query=" + search)
                                                                               + "&apiKey=" API_KEY
+                                                                              + dietParameter
+                                                                              + maxCaloriesParameter
                                                                               + "&addRecipeInformation=true";
     QString response = makeRequest(url);
     QJsonObject obj = objectFromString(response);
