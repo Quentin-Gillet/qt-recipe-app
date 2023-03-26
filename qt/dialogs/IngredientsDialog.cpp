@@ -11,7 +11,7 @@ IngredientsDialog::IngredientsDialog(Recipe* recipe, QWidget* parent)
     setWindowTitle("Ingredients needed");
     setModal(true);
     QList<Ingredient*> ingredients = recipe->ingredients;
-    setFixedSize(400, ingredients.count() * 33);
+    setFixedSize(400, ingredients.count() * 33 + 10);
 
     QBoxLayout* layout = new QBoxLayout(QBoxLayout::TopToBottom);
     setLayout(layout);

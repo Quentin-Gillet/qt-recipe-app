@@ -13,6 +13,7 @@
 #include <QPushButton>
 #include "../dialogs/IngredientsDialog.h"
 #include "../../recipe/Recipe.h"
+#include "../widgets/QIconLabel.h"
 
 class RecipeDetails: public QWidget
 {

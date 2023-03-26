@@ -30,7 +30,7 @@ signals:
     void clicked();
 
 public slots:
-    void updatePixmap(QPixmap);
+    void updatePixmap(const QPixmap&);
 };
 
 #endif //COOKINGAPP_QCLICKABLEIMAGE_H

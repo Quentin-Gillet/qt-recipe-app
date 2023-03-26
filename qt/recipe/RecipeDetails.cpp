@@ -7,7 +7,7 @@
 RecipeDetails::RecipeDetails(Recipe* recipe, QWidget* parent)
 {
     this->recipe = recipe;
-    setFixedSize(900, 700);
+    setFixedSize(1000, 700);
     setWindowTitle(recipe->title);
 
     QBoxLayout* boxLayout = new QBoxLayout(QBoxLayout::TopToBottom, this);
@@ -35,10 +35,19 @@ RecipeDetails::RecipeDetails(Recipe* recipe, QWidget* parent)
     }
     boxLayout->addLayout(titleLayout);
 
+    QBoxLayout* indicatorLayout = new QBoxLayout(QBoxLayout::LeftToRight);
+    QIconLabel* timeLabel = new QIconLabel(QString::number(recipe->readyInMinutes) + " minutes");
+    timeLabel->setIcon(QIcon(":clock.png"), 24);
+    QIconLabel* personLabel = new QIconLabel(QString::number(recipe->servings) + " person(s)");
+    personLabel->setIcon(QIcon(":persons.png"), 24);
+    indicatorLayout->addWidget(timeLabel, 0, Qt::AlignHCenter);
+    indicatorLayout->addWidget(personLabel, 0, Qt::AlignHCenter);
+    boxLayout->addLayout(indicatorLayout);
+
     QBoxLayout* instructionLayout = new QBoxLayout(QBoxLayout::TopToBottom);
     QLabel* instructionTextLabel = new QLabel("Instruction:");
     instructionTextLabel->setStyleSheet("QLabel {text-decoration: underline;}");
-    instructionLayout->addWidget(instructionTextLabel, 50);
+    instructionLayout->addWidget(instructionTextLabel, 0);
 
     QScrollArea* scrollArea = new QScrollArea(this);
     scrollArea->setFixedWidth(this->width() - 35);
@@ -48,7 +57,7 @@ RecipeDetails::RecipeDetails(Recipe* recipe, QWidget* parent)
     instructionsLabel->setScaledContents(true);
     instructionsLabel->setWordWrap(true);
     scrollArea->setWidget(instructionsLabel);
-    instructionLayout->addWidget(scrollArea, 0, Qt::AlignHCenter);
+    instructionLayout->addWidget(scrollArea, 30, Qt::AlignHCenter);
     boxLayout->addLayout(instructionLayout, 50);
 
     QPushButton* closeButton = new QPushButton("Close");

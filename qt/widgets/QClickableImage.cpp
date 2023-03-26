@@ -20,7 +20,7 @@ void QClickableImage::mousePressEvent(QMouseEvent *event)
     emit clicked();
 }
 
-void QClickableImage::updatePixmap(QPixmap pixmap)
+void QClickableImage::updatePixmap(const QPixmap& pixmap)
 {
     loadingGif->stop();
     delete loadingGif;

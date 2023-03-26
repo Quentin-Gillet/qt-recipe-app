@@ -39,7 +39,7 @@ public:
 private slots:
     void imageDownloaded();
 signals:
-    void imageLoaded(QPixmap);
+    void imageLoaded(const QPixmap&);
 };
 
 

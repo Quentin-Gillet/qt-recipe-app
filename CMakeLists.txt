@@ -27,7 +27,7 @@ set(PROJECT_SOURCES
         qt/widgets/QClickableImage.h
         qt/widgets/QClickableImage.cpp
         qt/tools/FileDownloader.h
-        qt/tools/FileDownloader.cpp qt/recipe/RecipeGrid.cpp qt/recipe/RecipeGrid.h qt/tools/Tools.cpp qt/tools/Tools.h qt/dialogs/SearchDialog.cpp qt/dialogs/SearchDialog.h qt/recipe/RecipeDetails.cpp qt/recipe/RecipeDetails.h qt/dialogs/IngredientsDialog.cpp qt/dialogs/IngredientsDialog.h)
+        qt/tools/FileDownloader.cpp qt/recipe/RecipeGrid.cpp qt/recipe/RecipeGrid.h qt/tools/Tools.cpp qt/tools/Tools.h qt/dialogs/SearchDialog.cpp qt/dialogs/SearchDialog.h qt/recipe/RecipeDetails.cpp qt/recipe/RecipeDetails.h qt/dialogs/IngredientsDialog.cpp qt/dialogs/IngredientsDialog.h qt/widgets/QIconLabel.cpp qt/widgets/QIconLabel.h)
 
 qt_add_executable(CookingApp
     MANUAL_FINALIZATION

@@ -2,5 +2,7 @@
   <qresource>
     <file alias="loading.gif">assets/giphy.gif</file>
     <file alias="recipe.jpg">assets/recipe.jpg</file>
+    <file alias="clock.png">assets/clock.png</file>
+    <file alias="persons.png">assets/persons.png</file>
   </qresource>
 </RCC>
