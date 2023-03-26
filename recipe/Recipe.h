@@ -7,17 +7,22 @@
 
 #include <string>
 #include <vector>
+#include <QPixmap>
+#include <QObject>
 #include "Ingredient.h"
+#include "../qt/tools/FileDownloader.h"
 
-class Recipe
+class Recipe: public QObject
 {
+    Q_OBJECT
 public:
     bool vegetarian;
     bool vegan;
     bool veryPopular;
 
     QString title;
-    QString image;
+    QString imageUrl;
+    QPixmap imagePixmap;
     int servings;
     int readyInMinutes;
     QStringList dishTypes;
@@ -25,8 +30,16 @@ public:
 
     QList<Ingredient> ingredients;
 
+    FileDownloader* fileDownloader;
+
     explicit Recipe(const QJsonObject &recipeJson);
     ~Recipe();
+
+    void startImageDownload(QObject* object, const char* slot);
+private slots:
+    void imageDownloaded();
+signals:
+    void imageLoaded(QPixmap);
 };
 
 

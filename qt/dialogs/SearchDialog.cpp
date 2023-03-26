@@ -29,14 +29,14 @@ SearchDialog::SearchDialog(QWidget *parent)
     hBoxLayout->addWidget(veganDiet);
     gridLayout->addLayout(hBoxLayout, 1, 0, 1, 4);
 
-    maxCaloriesLabel = new QLabel("Set max colories per serving:");
+    maxCaloriesLabel = new QLabel("Set max colories per serving: (0 = ignore)");
     caloriesCount = new QLabel("800");
     maxCaloriesSlider = new QSlider(Qt::Orientation::Horizontal);
     maxCaloriesSlider->setMaximum(1000);
     maxCaloriesSlider->setMinimum(0);
-    maxCaloriesSlider->setValue(800);
+    maxCaloriesSlider->setValue(0);
     maxCaloriesSlider->setTickInterval(10);
-    gridLayout->addWidget(maxCaloriesLabel, 2, 0);
+    gridLayout->addWidget(maxCaloriesLabel, 2, 0, 1, 3);
     gridLayout->addWidget(maxCaloriesSlider, 3, 0, 1, 3);
     gridLayout->addWidget(caloriesCount, 3, 3);
 

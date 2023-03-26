@@ -11,13 +11,13 @@ RecipeGrid::RecipeGrid(QWidget *parent) :
     setLayout(gridLayout);
 }
 
-void RecipeGrid::generateRecipeGrid(QList<Recipe> recipes)
+void RecipeGrid::generateRecipeGrid(QList<Recipe*> recipes)
 {
     for(int i = 0; i < recipes.length(); i++)
     {
-        Recipe recipe = recipes[i];
-        RecipeCard* card = new RecipeCard(recipe.image);
-        card->setText(recipe.title);
+        Recipe* recipe = recipes[i];
+        RecipeCard* card = new RecipeCard(recipe);
+        card->setText(recipe->title);
         QGridLayout* layout = qobject_cast<QGridLayout*>(this->layout());
         layout->addWidget(card, i / 3, i % 3);
     }

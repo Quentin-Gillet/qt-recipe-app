@@ -6,14 +6,17 @@
 #include "RecipeCard.h"
 
 
-RecipeCard::RecipeCard(QString url, QWidget *parent) :
+RecipeCard::RecipeCard(Recipe* recipe, QWidget *parent) :
         QWidget(parent)
 {
+    this->recipe = recipe;
+
     auto* layout = new QBoxLayout(QBoxLayout::TopToBottom);
     setLayout(layout);
 
-    auto* image = new QClickableImage(&url, this);
-    QObject::connect(image, &QClickableImage::clicked,
+    auto* image = new QClickableImage(this);
+    recipe->startImageDownload(image, SLOT(updatePixmap(QPixmap)));
+    connect(image, &QClickableImage::clicked,
                      this, &RecipeCard::clicked);
 
     layout->addWidget(image);
@@ -21,7 +24,8 @@ RecipeCard::RecipeCard(QString url, QWidget *parent) :
 
 void RecipeCard::clicked()
 {
-    qDebug() << "test";
+    RecipeDetails* recipeDetails = new RecipeDetails(this->recipe);
+    recipeDetails->show();
 }
 
 void RecipeCard::setText(QString& text)

@@ -8,12 +8,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     this->show();
 
+    this->setFixedSize(this->width(), this->height() - 30);
+
     //Entry label
     QString labelText = "Welcome to your app cooking helper !";
     QLabel* label = new QLabel(labelText, this);
     auto labelWidth = label->fontMetrics().boundingRect(labelText).width();
     label->setGeometry(this->width() / 2 - labelWidth / 2,
                        -90, labelWidth, labelWidth);
+    label->show();
 
     //Recipe grid
     QFrame* frame = this->ui->frame;
@@ -33,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
     //Discover
     connect(this->ui->actionExplore, &QAction::triggered,
             recipeGrid, &RecipeGrid::refreshRecipeGrid);
+
 }
 
 MainWindow::~MainWindow()
@@ -43,7 +47,7 @@ MainWindow::~MainWindow()
 void MainWindow::performSearch(const QString& searchQuery, const QString& mealDiet, int maxCalories)
 {
     Scrapper scrapper;
-    QList<Recipe> recipes = scrapper.searchRecipe(searchQuery, mealDiet, maxCalories);
+    QList<Recipe*> recipes = scrapper.searchRecipe(searchQuery, mealDiet, maxCalories);
     recipeGrid->clearRecipeGrid();
     recipeGrid->generateRecipeGrid(recipes);
 }

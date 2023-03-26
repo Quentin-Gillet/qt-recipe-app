@@ -10,7 +10,7 @@ Recipe::Recipe(const QJsonObject &recipeJson)
     this->vegan = recipeJson["vegan"].toBool();
     this->veryPopular = recipeJson["veryPopular"].toBool();
     this->title = recipeJson["title"].toString();
-    this->image = recipeJson["image"].toString();
+    this->imageUrl = recipeJson["image"].toString();
     this->servings = recipeJson["servings"].toInt();
     this->readyInMinutes = recipeJson["readyInMinutes"].toInt();
     this->instructions = recipeJson["instructions"].toString();
@@ -34,4 +34,21 @@ Recipe::~Recipe()
 {
     this->dishTypes.clear();
     this->ingredients.clear();
+}
+
+void Recipe::startImageDownload(QObject* object, const char* slot)
+{
+    QUrl qUrl(this->imageUrl);
+    fileDownloader = new FileDownloader(qUrl, this);
+
+    connect(fileDownloader, &FileDownloader::downloaded,
+            this, &Recipe::imageDownloaded);
+    connect(this, SIGNAL(imageLoaded(QPixmap)),
+            object, slot);
+}
+
+void Recipe::imageDownloaded()
+{
+    this->imagePixmap.loadFromData(fileDownloader->downloadedData());
+    emit imageLoaded(this->imagePixmap);
 }

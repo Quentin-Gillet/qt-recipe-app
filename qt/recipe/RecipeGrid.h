@@ -21,13 +21,13 @@ Q_OBJECT
 
 public:
     explicit RecipeGrid(QWidget *parent = nullptr);
-    void generateRecipeGrid(QList<Recipe>);
+    void generateRecipeGrid(QList<Recipe*>);
     void clearRecipeGrid();
 public slots:
     inline void refreshRecipeGrid()
     {
         Scrapper scrapper;
-        QList<Recipe> recipes = scrapper.getRandomRecipe(9);
+        QList<Recipe*> recipes = scrapper.getRandomRecipe(9);
 
         clearRecipeGrid();
         generateRecipeGrid(recipes);

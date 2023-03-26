@@ -27,7 +27,7 @@ Scrapper::Scrapper()
     manager = new QNetworkAccessManager();
 }
 
-QList<Recipe> Scrapper::searchRecipe(const QString& search, const QString& diet, int maxCalories, int count)
+QList<Recipe*> Scrapper::searchRecipe(const QString& search, const QString& diet, int maxCalories, int count)
 {
     QString dietParameter = !diet.compare("All") ? "" : "&diet=" + diet.toLower();
     QString maxCaloriesParameter = maxCalories == 0 ? "" : "&maxCalories=" + QString::number(maxCalories);
@@ -39,26 +39,26 @@ QList<Recipe> Scrapper::searchRecipe(const QString& search, const QString& diet,
     QString response = makeRequest(url);
     QJsonObject obj = objectFromString(response);
     QJsonArray recipes = obj["results"].toArray();
-    QList<Recipe> recipeList;
+    QList<Recipe*> recipeList;
     for(auto && i : recipes)
     {
-        Recipe recipe = Recipe(i.toObject());
+        Recipe* recipe = new Recipe(i.toObject());
         recipeList.append(recipe);
     }
     return recipeList;
 }
 
-QList<Recipe> Scrapper::getRandomRecipe(int count)
+QList<Recipe*> Scrapper::getRandomRecipe(int count)
 {
     //GENERATE URL WITH DEFINE API KEY AND BASE URL
     QString url = BASE_URL "random?number=" + QString::number(count) + "&apiKey=" API_KEY;
     QString response = makeRequest(url);
     QJsonObject obj = objectFromString(response);
     QJsonArray recipes = obj["recipes"].toArray();
-    QList<Recipe> recipeList;
+    QList<Recipe*> recipeList;
     for(auto && i : recipes)
     {
-        Recipe recipe = Recipe(i.toObject());
+        Recipe* recipe = new Recipe(i.toObject());
         recipeList.append(recipe);
     }
     return recipeList;

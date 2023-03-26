@@ -10,17 +10,16 @@
 #include <QPixmap>
 #include <QVBoxLayout>
 #include <QMovie>
-#include "../tools/FileDownloader.h"
+#include "../../recipe/Recipe.h"
 
 class QClickableImage : public QLabel
 {
 Q_OBJECT
 
 public:
-    explicit QClickableImage(QString* url, QWidget *parent = nullptr);
+    explicit QClickableImage(QWidget *parent = nullptr);
     inline ~QClickableImage(){}
 private:
-    FileDownloader* fileDownloader;
     QPixmap image;
     QMovie* loadingGif;
 
@@ -30,8 +29,8 @@ protected:
 signals:
     void clicked();
 
-private slots:
-    void updatePixmap();
+public slots:
+    void updatePixmap(QPixmap);
 };
 
 #endif //COOKINGAPP_QCLICKABLEIMAGE_H
