@@ -17,12 +17,12 @@ class Ingredient
 {
 public:
     QString name;
-    QString nameClean;
-    QString image;
     Measure* measure;
 
     explicit Ingredient(const QJsonObject &ingredient);
     ~Ingredient();
+
+    QJsonObject ingredientToJson();
 };
 
 

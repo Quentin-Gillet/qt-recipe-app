@@ -31,7 +31,9 @@ void RecipeCard::clicked()
 void RecipeCard::setText(QString& text)
 {
     this->text = text;
+    this->text.resize(45);
     auto *label = new QLabel(this->text);
+    label->setStyleSheet("QLabel {font-size: 14px;}");
     this->layout()->addWidget(label);
 }
 

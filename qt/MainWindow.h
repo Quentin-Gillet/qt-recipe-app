@@ -4,8 +4,9 @@
 #include <QMainWindow>
 #include <QLabel>
 #include <QPushButton>
-#include "../recipe/RecipeGrid.h"
-#include "../dialogs/SearchDialog.h"
+#include "recipe/RecipeGrid.h"
+#include "dialogs/SearchDialog.h"
+#include "../recipe/RecipeFavourite.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,6 +26,7 @@ private:
 
 public slots:
     void displaySearchDialog();
+    void displayFavourites();
     void performSearch(const QString& result, const QString& mealDiet, int maxCalories);
 };
 #endif // MAINWINDOW_H

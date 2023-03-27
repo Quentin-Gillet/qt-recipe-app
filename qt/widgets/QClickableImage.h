@@ -22,6 +22,7 @@ public:
 private:
     QPixmap image;
     QMovie* loadingGif;
+    bool isLoading;
 
 protected:
     void mousePressEvent(QMouseEvent* event);

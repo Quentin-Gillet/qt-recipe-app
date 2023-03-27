@@ -1,4 +1,4 @@
-#include "qt/main_window/MainWindow.h"
+#include "qt/MainWindow.h"
 
 #include <QApplication>
 #include <QGridLayout>

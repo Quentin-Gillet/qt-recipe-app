@@ -30,7 +30,7 @@ SearchDialog::SearchDialog(QWidget *parent)
     gridLayout->addLayout(hBoxLayout, 1, 0, 1, 4);
 
     maxCaloriesLabel = new QLabel("Set max colories per serving: (0 = ignore)");
-    caloriesCount = new QLabel("800");
+    caloriesCount = new QLabel("0");
     maxCaloriesSlider = new QSlider(Qt::Orientation::Horizontal);
     maxCaloriesSlider->setMaximum(1000);
     maxCaloriesSlider->setMinimum(0);

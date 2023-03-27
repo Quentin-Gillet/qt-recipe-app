@@ -3,9 +3,12 @@
 //
 
 #include "Recipe.h"
+#include "RecipeFavourite.h"
 
 Recipe::Recipe(const QJsonObject &recipeJson)
 {
+    RecipeFavourite recipeFavourite;
+
     this->vegetarian = recipeJson["vegetarian"].toBool();
     this->vegan = recipeJson["vegan"].toBool();
     this->veryPopular = recipeJson["veryPopular"].toBool();
@@ -13,13 +16,9 @@ Recipe::Recipe(const QJsonObject &recipeJson)
     this->imageUrl = recipeJson["image"].toString();
     this->servings = recipeJson["servings"].toInt();
     this->readyInMinutes = recipeJson["readyInMinutes"].toInt();
+    this->id = recipeJson["id"].toInt();
     this->instructions = recipeJson["instructions"].toString();
-    //dishTypes from json array
-    QJsonArray dishTypesJson = recipeJson["dishTypes"].toArray();
-    for (auto && i : dishTypesJson)
-    {
-        this->dishTypes.append(i.toString());
-    }
+    this->isFavourite = recipeFavourite.isFavourite(this->id);
 
     QJsonArray ingredientsJson = recipeJson["extendedIngredients"].toArray();
     for (int i = 0; i < ingredientsJson.size(); i++)
@@ -30,10 +29,27 @@ Recipe::Recipe(const QJsonObject &recipeJson)
     }
 }
 
-Recipe::~Recipe()
+QJsonObject Recipe::recipeToJson()
 {
-    this->dishTypes.clear();
-    this->ingredients.clear();
+    QJsonObject recipeJson;
+    recipeJson.insert("vegetarian", this->vegetarian);
+    recipeJson.insert("vegan", this->vegan);
+    recipeJson.insert("veryPopular", this->veryPopular);
+    recipeJson.insert("title", this->title);
+    recipeJson.insert("image", this->imageUrl);
+    recipeJson.insert("servings", this->servings);
+    recipeJson.insert("readyInMinutes", this->readyInMinutes);
+    recipeJson.insert("id", this->id);
+
+    QJsonArray ingredientsJson;
+    for(int i = 0; i < this->ingredients.count(); i++)
+    {
+        QJsonObject ingredientJson = this->ingredients[i]->ingredientToJson();
+        ingredientsJson.push_back(ingredientJson);
+    }
+    recipeJson.insert("extendedIngredients", ingredientsJson);
+
+    return recipeJson;
 }
 
 void Recipe::startImageDownload(QObject* object, const char* slot)
@@ -52,3 +68,10 @@ void Recipe::imageDownloaded()
     this->imagePixmap.loadFromData(fileDownloader->downloadedData());
     emit imageLoaded(this->imagePixmap);
 }
+
+Recipe::~Recipe()
+{
+    this->ingredients.clear();
+}
+
+

@@ -21,10 +21,7 @@ RecipeDetails::RecipeDetails(Recipe* recipe, QWidget* parent)
     QBoxLayout* titleLayout = new QBoxLayout(QBoxLayout::LeftToRight);
     QLabel* recipeTitle = new QLabel(recipe->title);
     recipeTitle->setStyleSheet("QLabel {font-size: 30px; text-decoration: underline;}");
-    //recipeTitle->setWordWrap(true);
     recipeTitle->setScaledContents(true);
-    //recipeTitle->setSizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Expanding);
-    //recipeTitle->setFixedWidth(this->width() - 130);
     titleLayout->addWidget(recipeTitle, 500, Qt::AlignHCenter);
     if(recipe->veryPopular)
     {
@@ -62,7 +59,8 @@ RecipeDetails::RecipeDetails(Recipe* recipe, QWidget* parent)
 
     QPushButton* closeButton = new QPushButton("Close");
     closeButton->setDefault(true);
-    QPushButton* addToFavouriteButton = new QPushButton("Add to favourite");
+    QString favouriteText = recipe->isFavourite ? "Remove from favourite" : "Add to favourite";
+    favouriteButton = new QPushButton(favouriteText);
     QPushButton* ingredientsButton = new QPushButton("Ingredient list");
     if(recipe->ingredients.count() == 0)
     {
@@ -71,15 +69,15 @@ RecipeDetails::RecipeDetails(Recipe* recipe, QWidget* parent)
     }
     QBoxLayout* buttonLayout = new QBoxLayout(QBoxLayout::RightToLeft);
     buttonLayout->addWidget(closeButton);
-    buttonLayout->addWidget(addToFavouriteButton);
+    buttonLayout->addWidget(favouriteButton);
     buttonLayout->addWidget(ingredientsButton);
     boxLayout->addLayout(buttonLayout);
 
     connect(closeButton, &QPushButton::clicked,
             this, &RecipeDetails::closeWindow);
 
-    connect(addToFavouriteButton, &QPushButton::clicked,
-            this, &RecipeDetails::addToFavourite);
+    connect(favouriteButton, &QPushButton::clicked,
+            this, &RecipeDetails::favouriteAction);
 
     connect(ingredientsButton, &QPushButton::clicked,
             this, &RecipeDetails::seeIngredients);
@@ -91,9 +89,22 @@ void RecipeDetails::closeWindow()
     this->close();
 }
 
-void RecipeDetails::addToFavourite()
+void RecipeDetails::favouriteAction()
 {
-
+    if(recipe->isFavourite)
+    {
+        RecipeFavourite jsonRecipe;
+        jsonRecipe.removeRecipe(this->recipe->id);
+        this->recipe->isFavourite = false;
+        this->favouriteButton->setText("Add to favourite");
+    }
+    else
+    {
+        RecipeFavourite jsonRecipe;
+        jsonRecipe.saveRecipe(this->recipe);
+        this->recipe->isFavourite = true;
+        this->favouriteButton->setText("Remove from favourite");
+    }
 }
 
 void RecipeDetails::seeIngredients()

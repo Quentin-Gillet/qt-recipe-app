@@ -10,3 +10,12 @@ Measure::Measure(const QJsonObject & measures)
     this->unitLong = measures["unitLong"].toString();
     this->unitShort = measures["unitShort"].toString();
 }
+
+QJsonObject Measure::mesureToJson()
+{
+    QJsonObject measureJson;
+    measureJson.insert("amount", this->amount);
+    measureJson.insert("unitLong", this->unitLong);
+    measureJson.insert("unitShort", this->unitShort);
+    return measureJson;
+}

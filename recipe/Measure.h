@@ -16,6 +16,7 @@ public:
     QString unitShort;
 
     Measure(const QJsonObject&);
+    QJsonObject mesureToJson();
 };
 
 

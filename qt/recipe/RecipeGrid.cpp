@@ -13,7 +13,15 @@ RecipeGrid::RecipeGrid(QWidget *parent) :
 
 void RecipeGrid::generateRecipeGrid(QList<Recipe*> recipes)
 {
-    for(int i = 0; i < recipes.length(); i++)
+    if(recipes.count() == 0)
+    {
+        QLabel* errorLabel = new QLabel("There is no recipes !");
+        errorLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+        errorLabel->setStyleSheet("QLabel {font-size: 30px; color: red;}");
+        layout()->addWidget(errorLabel);
+    }
+
+    for(int i = 0; i < recipes.count(); i++)
     {
         Recipe* recipe = recipes[i];
         RecipeCard* card = new RecipeCard(recipe);

@@ -14,9 +14,9 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Network)
 
 set(PROJECT_SOURCES
         main.cpp
-        qt/main_window/MainWindow.cpp
-        qt/main_window/MainWindow.h
-        qt/main_window/mainwindow.ui
+        qt/MainWindow.cpp
+        qt/MainWindow.h
+        qt/MainWindow.ui
         resources.qrc
         recipe/Ingredient.cpp
         recipe/Measure.cpp
@@ -27,7 +27,21 @@ set(PROJECT_SOURCES
         qt/widgets/QClickableImage.h
         qt/widgets/QClickableImage.cpp
         qt/tools/FileDownloader.h
-        qt/tools/FileDownloader.cpp qt/recipe/RecipeGrid.cpp qt/recipe/RecipeGrid.h qt/tools/Tools.cpp qt/tools/Tools.h qt/dialogs/SearchDialog.cpp qt/dialogs/SearchDialog.h qt/recipe/RecipeDetails.cpp qt/recipe/RecipeDetails.h qt/dialogs/IngredientsDialog.cpp qt/dialogs/IngredientsDialog.h qt/widgets/QIconLabel.cpp qt/widgets/QIconLabel.h)
+        qt/tools/FileDownloader.cpp
+        qt/recipe/RecipeGrid.cpp
+        qt/recipe/RecipeGrid.h
+        qt/tools/Tools.cpp
+        qt/tools/Tools.h
+        qt/dialogs/SearchDialog.cpp
+        qt/dialogs/SearchDialog.h
+        qt/recipe/RecipeDetails.cpp
+        qt/recipe/RecipeDetails.h
+        qt/dialogs/IngredientsDialog.cpp
+        qt/dialogs/IngredientsDialog.h
+        qt/widgets/QIconLabel.cpp
+        qt/widgets/QIconLabel.h
+        recipe/RecipeFavourite.cpp
+        recipe/RecipeFavourite.h)
 
 qt_add_executable(CookingApp
     MANUAL_FINALIZATION

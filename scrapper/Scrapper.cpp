@@ -7,7 +7,6 @@
 QJsonObject Scrapper::objectFromString(const QString &in)
 {
     QJsonObject obj;
-
     QJsonDocument doc = QJsonDocument::fromJson(in.toUtf8());
 
     // check validity of the document

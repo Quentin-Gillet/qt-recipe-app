@@ -36,6 +36,9 @@ MainWindow::MainWindow(QWidget *parent)
     //Discover
     connect(this->ui->actionExplore, &QAction::triggered,
             recipeGrid, &RecipeGrid::refreshRecipeGrid);
+    //Favourite
+    connect(this->ui->actionFavourite, &QAction::triggered,
+            this, &MainWindow::displayFavourites);
 
 }
 
@@ -63,5 +66,13 @@ void MainWindow::displaySearchDialog()
                       searchDialog->maxCaloriesSlider->value());
     }
     delete searchDialog;
+}
+
+void MainWindow::displayFavourites()
+{
+    RecipeFavourite jsonRecipe;
+    QList<Recipe*> recipes = jsonRecipe.loadRecipes();
+    recipeGrid->clearRecipeGrid();
+    recipeGrid->generateRecipeGrid(recipes);
 }
 

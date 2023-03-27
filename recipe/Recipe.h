@@ -25,8 +25,10 @@ public:
     QPixmap imagePixmap;
     int servings;
     int readyInMinutes;
-    QStringList dishTypes;
     QString instructions;
+
+    int id;
+    bool isFavourite;
 
     QList<Ingredient*> ingredients;
 
@@ -34,7 +36,7 @@ public:
 
     explicit Recipe(const QJsonObject &recipeJson);
     ~Recipe();
-
+    QJsonObject recipeToJson();
     void startImageDownload(QObject* object, const char* slot);
 private slots:
     void imageDownloaded();

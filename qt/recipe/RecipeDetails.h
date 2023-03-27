@@ -13,6 +13,7 @@
 #include <QPushButton>
 #include "../dialogs/IngredientsDialog.h"
 #include "../../recipe/Recipe.h"
+#include "../../recipe/RecipeFavourite.h"
 #include "../widgets/QIconLabel.h"
 
 class RecipeDetails: public QWidget
@@ -21,10 +22,11 @@ class RecipeDetails: public QWidget
 public:
     explicit RecipeDetails(Recipe* recipe, QWidget* parent = nullptr);
 private:
+    QPushButton* favouriteButton;
     Recipe *recipe;
 private slots:
     void closeWindow();
-    void addToFavourite();
+    void favouriteAction();
     void seeIngredients();
 };
 

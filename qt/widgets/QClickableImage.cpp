@@ -9,22 +9,25 @@ QClickableImage::QClickableImage(QWidget *parent)
 {
     this->setScaledContents(true);
 
-    loadingGif = new QMovie(":loading.gif");
-    this->setMovie(loadingGif);
-    loadingGif->start();
+    this->loadingGif = new QMovie(":loading.gif");
+    this->setMovie(this->loadingGif);
+    this->loadingGif->start();
+    this->isLoading = true;
 }
 
 
 void QClickableImage::mousePressEvent(QMouseEvent *event)
 {
-    emit clicked();
+    if(!this->isLoading)
+        emit this->clicked();
 }
 
 void QClickableImage::updatePixmap(const QPixmap& pixmap)
 {
-    loadingGif->stop();
-    delete loadingGif;
+    this->loadingGif->stop();
+    delete this->loadingGif;
+    this->isLoading = false;
 
     this->image = pixmap;
-    this->setPixmap(image.scaled(this->width(), this->height(), Qt::KeepAspectRatio));
+    this->setPixmap(this->image.scaled(this->width(), this->height(), Qt::KeepAspectRatio));
 }
