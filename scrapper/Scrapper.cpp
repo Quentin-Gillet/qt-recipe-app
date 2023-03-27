@@ -34,7 +34,8 @@ QList<Recipe*> Scrapper::searchRecipe(const QString& search, const QString& diet
                                                                               + "&apiKey=" API_KEY
                                                                               + dietParameter
                                                                               + maxCaloriesParameter
-                                                                              + "&addRecipeInformation=true";
+                                                                              + "&addRecipeInformation=true"
+                                                                              + "&fillIngredients=true";
     QString response = makeRequest(url);
     QJsonObject obj = objectFromString(response);
     QJsonArray recipes = obj["results"].toArray();

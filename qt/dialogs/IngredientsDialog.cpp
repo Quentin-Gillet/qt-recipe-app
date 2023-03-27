@@ -11,13 +11,14 @@ IngredientsDialog::IngredientsDialog(Recipe* recipe, QWidget* parent)
     setWindowTitle("Ingredients needed");
     setModal(true);
     QList<Ingredient*> ingredients = recipe->ingredients;
-    setFixedSize(400, ingredients.count() * 33 + 10);
+    setFixedSize(400, ingredients.count() * 33 + 20);
 
     QBoxLayout* layout = new QBoxLayout(QBoxLayout::TopToBottom);
     setLayout(layout);
 
-    QBoxLayout* servingLayout = new QBoxLayout(QBoxLayout::RightToLeft);
+    QBoxLayout* servingLayout = new QBoxLayout(QBoxLayout::LeftToRight);
     QLabel* servingLabel = new QLabel("Servings: ");
+    servingLabel->setStyleSheet("QLabel {text-decoration: underline; font-weight: bold;}");
     servingLayout->addWidget(servingLabel);
     personCount = new QSpinBox(this);
     personCount->setMinimum(0);
@@ -34,7 +35,7 @@ IngredientsDialog::IngredientsDialog(Recipe* recipe, QWidget* parent)
     updateIngredients();
     layout->addLayout(ingredientsLayout);
 
-    QBoxLayout* buttonLayout = new QBoxLayout(QBoxLayout::LeftToRight);
+    QBoxLayout* buttonLayout = new QBoxLayout(QBoxLayout::RightToLeft);
     QPushButton* closeButton = new QPushButton("Close");
     QPushButton* toFileButton = new QPushButton("Save to file");
     buttonLayout->addWidget(closeButton);

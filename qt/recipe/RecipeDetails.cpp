@@ -30,6 +30,13 @@ RecipeDetails::RecipeDetails(Recipe* recipe, QWidget* parent)
                                     " background-color: yellow;}");
         titleLayout->addWidget(popularLabel, 0, Qt::AlignRight);
     }
+    if(recipe->veryHealthy)
+    {
+        QLabel* healthyLabel = new QLabel("HEALTHY!");
+        healthyLabel->setStyleSheet("QLabel {font-size: 24px; font-style: italic; color: greenyellow; border-radius: 15px;"
+                                    " background-color: forestgreen;}");
+        titleLayout->addWidget(healthyLabel, 0, Qt::AlignRight);
+    }
     boxLayout->addLayout(titleLayout);
 
     QBoxLayout* indicatorLayout = new QBoxLayout(QBoxLayout::LeftToRight);
@@ -48,7 +55,8 @@ RecipeDetails::RecipeDetails(Recipe* recipe, QWidget* parent)
 
     QScrollArea* scrollArea = new QScrollArea(this);
     scrollArea->setFixedWidth(this->width() - 35);
-    QLabel* instructionsLabel = new QLabel(recipe->instructions);
+    QLabel* instructionsLabel = new QLabel(recipe->getInstructionString());
+    instructionsLabel->setTextFormat(Qt::RichText);
     instructionsLabel->setFixedWidth(this->width() - 40);
     instructionsLabel->setAlignment(Qt::AlignJustify);
     instructionsLabel->setScaledContents(true);

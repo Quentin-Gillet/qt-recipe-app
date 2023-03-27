@@ -45,6 +45,7 @@ SearchDialog::SearchDialog(QWidget *parent)
 
     searchLabel = new QLabel("Search query:");
     searchInput = new QLineEdit();
+    searchInput->setFocus();
     gridLayout->addWidget(searchLabel, 4, 0);
     gridLayout->addWidget(searchInput, 5, 0, 1, 4);
 

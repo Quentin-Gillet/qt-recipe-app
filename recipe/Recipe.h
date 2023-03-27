@@ -10,6 +10,7 @@
 #include <QPixmap>
 #include <QObject>
 #include "Ingredient.h"
+#include "Instruction.h"
 #include "../qt/tools/FileDownloader.h"
 
 class Recipe: public QObject
@@ -19,18 +20,19 @@ public:
     bool vegetarian;
     bool vegan;
     bool veryPopular;
+    bool veryHealthy;
 
     QString title;
     QString imageUrl;
     QPixmap imagePixmap;
     int servings;
     int readyInMinutes;
-    QString instructions;
 
     int id;
     bool isFavourite;
 
     QList<Ingredient*> ingredients;
+    QList<Instruction*> instructions;
 
     FileDownloader* fileDownloader;
 
@@ -38,6 +40,8 @@ public:
     ~Recipe();
     QJsonObject recipeToJson();
     void startImageDownload(QObject* object, const char* slot);
+
+    QString getInstructionString();
 private slots:
     void imageDownloaded();
 signals:

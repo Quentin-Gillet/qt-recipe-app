@@ -41,7 +41,7 @@ set(PROJECT_SOURCES
         qt/widgets/QIconLabel.cpp
         qt/widgets/QIconLabel.h
         recipe/RecipeFavourite.cpp
-        recipe/RecipeFavourite.h)
+        recipe/RecipeFavourite.h recipe/Instruction.cpp recipe/Instruction.h)
 
 qt_add_executable(CookingApp
     MANUAL_FINALIZATION

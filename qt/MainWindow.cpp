@@ -1,6 +1,15 @@
 #include "MainWindow.h"
 #include "./ui_mainwindow.h"
 
+/*
+ * TODO:
+ * Fix search input not focus
+ * Block searching if no search
+ * Add checkbox (idk for what)
+ * Add shortcut for menu bar
+ * Add to text function for ingredients
+ */
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
