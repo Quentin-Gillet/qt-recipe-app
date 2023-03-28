@@ -4,19 +4,20 @@
 
 #include "QIconLabel.h"
 
-QIconLabel::QIconLabel(const QString& text, QWidget* parent)
+QIconLabel::QIconLabel(const QString &text, QWidget *parent) : QWidget(parent)
 {
-    QBoxLayout* layout = new QBoxLayout(QBoxLayout::RightToLeft);
+    auto * layout = new QBoxLayout(QBoxLayout::RightToLeft);
     setLayout(layout);
 
     this->textLabel = new QLabel(text, this);
     layout->addWidget(this->textLabel);
+
+    this->iconLabel = new QLabel(this);
 }
 
-void QIconLabel::setIcon(const QIcon& icon, int size)
+void QIconLabel::setIcon(const QIcon &icon, int size)
 {
     QPixmap pixmap = icon.pixmap(QSize(size, size));
-    this->iconLabel = new QLabel(this);
     this->iconLabel->setPixmap(pixmap);
     layout()->addWidget(iconLabel);
 }

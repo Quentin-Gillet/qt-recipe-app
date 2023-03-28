@@ -2,8 +2,8 @@
 // Created by Quentin Gillet on 23/03/2023.
 //
 
-#ifndef COOKINGAPP_FILEDOWNLOADER_H
-#define COOKINGAPP_FILEDOWNLOADER_H
+#ifndef COOKING_APP_FILE_DOWNLOADER_H
+#define COOKING_APP_FILE_DOWNLOADER_H
 
 #include <QObject>
 #include <QByteArray>
@@ -15,18 +15,19 @@ class FileDownloader : public QObject
 {
 Q_OBJECT
 public:
-    explicit FileDownloader(QUrl imageUrl, QObject *parent = 0);
-    virtual ~FileDownloader();
-    QByteArray downloadedData() const;
+    explicit FileDownloader(QObject *parent = nullptr);
+    void downloadFile(const QUrl &imageUrl);
+    [[nodiscard]] QByteArray downloadedData() const;
+
+private:
+    QNetworkAccessManager m_WebCtrl;
+    QByteArray m_DownloadedData;
 
 signals:
     void downloaded();
 
 private slots:
-    void fileDownloaded(QNetworkReply* pReply);
-private:
-    QNetworkAccessManager m_WebCtrl;
-    QByteArray m_DownloadedData;
+    void fileDownloaded(QNetworkReply *pReply);
 };
 
-#endif //COOKINGAPP_FILEDOWNLOADER_H
+#endif

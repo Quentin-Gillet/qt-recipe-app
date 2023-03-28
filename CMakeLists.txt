@@ -18,10 +18,10 @@ set(PROJECT_SOURCES
         qt/MainWindow.h
         qt/MainWindow.ui
         resources.qrc
-        recipe/Ingredient.cpp
-        recipe/Measure.cpp
+        recipe/elements/Ingredient.cpp
+        recipe/elements/Measure.cpp
         recipe/Recipe.cpp
-        scrapper/Scrapper.cpp
+        recipe/scrapper/Scrapper.cpp
         qt/recipe/RecipeCard.cpp
         qt/recipe/RecipeCard.h
         qt/widgets/QClickableImage.h
@@ -41,7 +41,7 @@ set(PROJECT_SOURCES
         qt/widgets/QIconLabel.cpp
         qt/widgets/QIconLabel.h
         recipe/RecipeFavourite.cpp
-        recipe/RecipeFavourite.h recipe/Instruction.cpp recipe/Instruction.h)
+        recipe/RecipeFavourite.h recipe/elements/Instruction.cpp recipe/elements/Instruction.h)
 
 qt_add_executable(CookingApp
     MANUAL_FINALIZATION

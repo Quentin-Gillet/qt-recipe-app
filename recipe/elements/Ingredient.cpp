@@ -17,7 +17,7 @@ Ingredient::~Ingredient()
     delete measure;
 }
 
-QJsonObject Ingredient::ingredientToJson()
+QJsonObject Ingredient::ingredientToJson() const
 {
     QJsonObject ingredientJson;
     ingredientJson.insert("nameClean", this->name);

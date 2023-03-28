@@ -4,14 +4,14 @@
 
 #include "Measure.h"
 
-Measure::Measure(const QJsonObject & measures)
+Measure::Measure(const QJsonObject &measures)
 {
     this->amount = measures["amount"].toDouble();
     this->unitLong = measures["unitLong"].toString();
     this->unitShort = measures["unitShort"].toString();
 }
 
-QJsonObject Measure::mesureToJson()
+QJsonObject Measure::mesureToJson() const
 {
     QJsonObject measureJson;
     measureJson.insert("amount", this->amount);

@@ -2,8 +2,8 @@
 // Created by Quentin Gillet on 27/03/2023.
 //
 
-#ifndef COOKINGAPP_INSTRUCTION_H
-#define COOKINGAPP_INSTRUCTION_H
+#ifndef COOKING_APP_INSTRUCTION_H
+#define COOKING_APP_INSTRUCTION_H
 
 #include <QJsonObject>
 #include <QJsonArray>
@@ -21,4 +21,4 @@ public:
     QJsonObject instructionToJson();
 };
 
-#endif //COOKINGAPP_INSTRUCTION_H
+#endif //COOKING_APP_INSTRUCTION_H

@@ -2,16 +2,14 @@
 // Created by Quentin Gillet on 26/03/2023.
 //
 
-#ifndef COOKINGAPP_INGREDIENTSDIALOG_H
-#define COOKINGAPP_INGREDIENTSDIALOG_H
+#ifndef COOKING_APP_INGREDIENTS_DIALOG_H
+#define COOKING_APP_INGREDIENTS_DIALOG_H
 
-#include <Qt>
 #include <QDialog>
 #include <QPushButton>
 #include <QLabel>
 #include <QBoxLayout>
 #include <QSpinBox>
-#include <QWidget>
 #include "../../recipe/Recipe.h"
 #include "../tools/Tools.h"
 
@@ -31,4 +29,4 @@ private slots:
 };
 
 
-#endif //COOKINGAPP_INGREDIENTSDIALOG_H
+#endif

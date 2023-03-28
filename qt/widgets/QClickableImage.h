@@ -2,8 +2,8 @@
 // Created by Quentin Gillet on 23/03/2023.
 //
 
-#ifndef COOKINGAPP_QCLICKABLEIMAGE_H
-#define COOKINGAPP_QCLICKABLEIMAGE_H
+#ifndef COOKING_APP_QCLICKABLE_IMAGE_H
+#define COOKING_APP_QCLICKABLE_IMAGE_H
 
 #include <QWidget>
 #include <QLabel>
@@ -18,7 +18,6 @@ Q_OBJECT
 
 public:
     explicit QClickableImage(QWidget *parent = nullptr);
-    inline ~QClickableImage(){}
 private:
     QPixmap image;
     QMovie* loadingGif;
@@ -34,4 +33,4 @@ public slots:
     void updatePixmap(const QPixmap&);
 };
 
-#endif //COOKINGAPP_QCLICKABLEIMAGE_H
+#endif //COOKING_APP_QCLICKABLEIMAGE_H

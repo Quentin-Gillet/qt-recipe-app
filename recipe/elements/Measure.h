@@ -15,8 +15,8 @@ public:
     QString unitLong;
     QString unitShort;
 
-    Measure(const QJsonObject&);
-    QJsonObject mesureToJson();
+    explicit Measure(const QJsonObject&);
+    [[nodiscard]] QJsonObject mesureToJson() const;
 };
 
 

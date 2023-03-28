@@ -2,8 +2,8 @@
 // Created by Quentin Gillet on 23/03/2023.
 //
 
-#ifndef COOKINGAPP_RECIPECARD_H
-#define COOKINGAPP_RECIPECARD_H
+#ifndef COOKING_APP_RECIPE_CARD_H
+#define COOKING_APP_RECIPE_CARD_H
 
 #include <QWidget>
 #include <QLabel>
@@ -19,8 +19,7 @@ Q_OBJECT
 
 public:
     explicit RecipeCard(Recipe* recipe, QWidget *parent = nullptr);
-    void setText(QString& text);
-    ~RecipeCard();
+    void setText(const QString& in);
 private:
     QString text;
     Recipe *recipe;
@@ -30,4 +29,4 @@ private slots:
 };
 
 
-#endif //COOKINGAPP_RECIPECARD_H
+#endif

@@ -4,13 +4,14 @@
 
 #include "RecipeFavourite.h"
 
-RecipeFavourite::RecipeFavourite(){}
+RecipeFavourite::RecipeFavourite() = default;
 
 void RecipeFavourite::saveRecipe(Recipe *recipe)
 {
     QString path;
     bool validPath = getFilePath(&path);
-    if (validPath) {
+    if (validPath)
+    {
         QFile file(path + this->fileName);
         if (!QFileInfo::exists(path + this->fileName))
         {
@@ -63,24 +64,24 @@ QList<Recipe *> RecipeFavourite::loadRecipes()
                 QJsonObject oldJson = Scrapper::objectFromString(file.readAll());
                 QJsonArray recipes = oldJson["recipes"].toArray();
                 file.close();
-                QList<Recipe*> recipeList;
-                for(auto && i : recipes)
+                QList<Recipe *> recipeList;
+                for (auto &&i: recipes)
                 {
-                    Recipe* recipe = new Recipe(i.toObject());
+                    auto *recipe = new Recipe(i.toObject());
                     recipeList.append(recipe);
                 }
                 return recipeList;
             }
         }
     }
-    return QList<Recipe*>{};
+    return QList<Recipe *>{};
 }
 
-bool RecipeFavourite::getFilePath(QString* path)
+bool RecipeFavourite::getFilePath(QString *path)
 {
     QString standardPath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
     QDir pathDirectory{standardPath + this->folderName};
-    if(!pathDirectory.exists())
+    if (!pathDirectory.exists())
         pathDirectory.mkdir(pathDirectory.absolutePath());
     if (standardPath.isEmpty()) qFatal("Cannot determine settings storage location");
     *path = pathDirectory.absolutePath();
@@ -102,10 +103,10 @@ bool RecipeFavourite::isFavourite(int id)
                 QJsonObject oldJson = Scrapper::objectFromString(file.readAll());
                 QJsonArray recipes = oldJson["recipes"].toArray();
                 file.close();
-                for(auto && i : recipes)
+                for (auto &&i: recipes)
                 {
                     QJsonObject recipe = i.toObject();
-                    if(recipe["id"].toInt() == id)
+                    if (recipe["id"].toInt() == id)
                         return true;
                 }
                 return false;
@@ -137,7 +138,7 @@ void RecipeFavourite::removeRecipe(int id)
                     for (auto &&i: existingRecipesArray)
                     {
                         QJsonObject recipe = i.toObject();
-                        if(recipe["id"].toInt() == id)
+                        if (recipe["id"].toInt() == id)
                             continue;
                         recipesArray.push_back(recipe);
                     }
@@ -150,3 +151,4 @@ void RecipeFavourite::removeRecipe(int id)
         }
     }
 }
+

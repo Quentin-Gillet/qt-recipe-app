@@ -2,15 +2,15 @@
 // Created by Quentin Gillet on 26/03/2023.
 //
 
-#ifndef COOKINGAPP_RECIPEDETAILS_H
-#define COOKINGAPP_RECIPEDETAILS_H
+#ifndef COOKING_APP_RECIPE_DETAILS_H
+#define COOKING_APP_RECIPE_DETAILS_H
 
-#include <Qt>
 #include <QLabel>
 #include <QWidget>
 #include <QBoxLayout>
 #include <QScrollArea>
 #include <QPushButton>
+#include <QKeyEvent>
 #include "../dialogs/IngredientsDialog.h"
 #include "../../recipe/Recipe.h"
 #include "../../recipe/RecipeFavourite.h"
@@ -21,9 +21,12 @@ class RecipeDetails: public QWidget
     Q_OBJECT
 public:
     explicit RecipeDetails(Recipe* recipe, QWidget* parent = nullptr);
+
 private:
+    void keyPressEvent(QKeyEvent* event);
     QPushButton* favouriteButton;
     Recipe *recipe;
+
 private slots:
     void closeWindow();
     void favouriteAction();
@@ -31,4 +34,4 @@ private slots:
 };
 
 
-#endif //COOKINGAPP_RECIPEDETAILS_H
+#endif

@@ -4,13 +4,13 @@
 
 #include "SearchDialog.h"
 
-SearchDialog::SearchDialog(QWidget *parent)
+SearchDialog::SearchDialog(QWidget *parent) : QDialog(parent)
 {
     setWindowTitle("Search for recipe");
     setFixedSize(400, 300);
     setModal(true);
 
-    QGridLayout* gridLayout = new QGridLayout(this);
+    auto *gridLayout = new QGridLayout(this);
     setLayout(gridLayout);
 
     mealDietLabel = new QLabel("Select type of meal diet:");
@@ -23,7 +23,7 @@ SearchDialog::SearchDialog(QWidget *parent)
     dietRadioButtonGroup->addButton(vegetarianDiet);
     dietRadioButtonGroup->addButton(veganDiet);
     gridLayout->addWidget(mealDietLabel, 0, 0);
-    QHBoxLayout* hBoxLayout = new QHBoxLayout();
+    auto *hBoxLayout = new QHBoxLayout();
     hBoxLayout->addWidget(defaultDiet);
     hBoxLayout->addWidget(vegetarianDiet);
     hBoxLayout->addWidget(veganDiet);
@@ -78,16 +78,16 @@ SearchDialog::SearchDialog(QWidget *parent)
             this, &QDialog::accept);
 }
 
-void SearchDialog::maxCaloriesValueChanged(int value)
+void SearchDialog::maxCaloriesValueChanged(int value) const
 {
     caloriesCount->setText(QString::number(value));
 }
 
 void SearchDialog::searchButtonClicked()
 {
-    if(this->searchInput->text().isEmpty())
+    if (this->searchInput->text().isEmpty())
     {
-        QMessageBox::critical(this,"Error","Please fill the search query");
+        QMessageBox::critical(this, "Error", "Please fill the search query");
         return;
     }
     emit performSearch();

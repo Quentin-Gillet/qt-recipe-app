@@ -2,8 +2,8 @@
 // Created by Quentin Gillet on 24/03/2023.
 //
 
-#ifndef COOKINGAPP_RECIPEGRID_H
-#define COOKINGAPP_RECIPEGRID_H
+#ifndef COOKING_APP_RECIPE_GRID_H
+#define COOKING_APP_RECIPE_GRID_H
 
 
 #include <QWidget>
@@ -11,7 +11,7 @@
 #include <QString>
 #include <QList>
 #include <QScrollArea>
-#include "../../scrapper/Scrapper.h"
+#include "../../recipe/scrapper/Scrapper.h"
 #include "../../recipe/Recipe.h"
 #include "../tools/Tools.h"
 #include "RecipeCard.h"
@@ -38,4 +38,4 @@ public slots:
 };
 
 
-#endif //COOKINGAPP_RECIPEGRID_H
+#endif

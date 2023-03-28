@@ -2,8 +2,8 @@
 // Created by Quentin Gillet on 25/03/2023.
 //
 
-#ifndef COOKINGAPP_TOOLS_H
-#define COOKINGAPP_TOOLS_H
+#ifndef COOKING_APP_TOOLS_H
+#define COOKING_APP_TOOLS_H
 
 #include <QLayout>
 #include <QWidget>
@@ -15,4 +15,4 @@ public:
 };
 
 
-#endif //COOKINGAPP_TOOLS_H
+#endif //COOKING_APP_TOOLS_H

@@ -1,13 +1,8 @@
 #include "MainWindow.h"
 #include "./ui_mainwindow.h"
 
-/*
- * TODO:
- */
-
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+        : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     this->show();
@@ -16,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Entry label
     QString labelText = "Welcome to your app cooking helper !";
-    QLabel* label = new QLabel(labelText, this);
+    auto *label = new QLabel(labelText, this);
     auto labelWidth = label->fontMetrics().boundingRect(labelText).width();
     label->setGeometry(this->width() / 2 - labelWidth / 2,
                        -90, labelWidth, labelWidth);
@@ -68,21 +63,21 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::performSearch(const QString& searchQuery, const QString& mealDiet,
+void MainWindow::performSearch(const QString &searchQuery, const QString &mealDiet,
                                int maxCalories, bool ignorePantry, int resultsCount)
 {
     Scrapper scrapper;
-    QList<Recipe*> recipes = scrapper.searchRecipe(searchQuery, mealDiet,
-                                                   maxCalories, ignorePantry, resultsCount);
+    QList<Recipe *> recipes = scrapper.searchRecipe(searchQuery, mealDiet,
+                                                    maxCalories, ignorePantry, resultsCount);
     recipeGrid->clearRecipeGrid();
     recipeGrid->generateRecipeGrid(recipes);
 }
 
 void MainWindow::displaySearchDialog()
 {
-    SearchDialog* searchDialog = new SearchDialog(this);
+    auto *searchDialog = new SearchDialog(this);
     int resultCode = searchDialog->exec();
-    if(resultCode == 1)
+    if (resultCode == 1)
     {
         performSearch(searchDialog->searchInput->text(),
                       searchDialog->dietRadioButtonGroup->checkedButton()->text(),
@@ -96,7 +91,7 @@ void MainWindow::displaySearchDialog()
 void MainWindow::displayFavourites()
 {
     RecipeFavourite jsonRecipe;
-    QList<Recipe*> recipes = jsonRecipe.loadRecipes();
+    QList<Recipe *> recipes = jsonRecipe.loadRecipes();
     recipeGrid->clearRecipeGrid();
     recipeGrid->generateRecipeGrid(recipes);
 }

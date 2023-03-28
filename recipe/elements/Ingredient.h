@@ -6,11 +6,8 @@
 #define COOKING_PROJECT_INGREDIENT_H
 
 
-#include <string>
-#include <vector>
 #include <QJsonObject>
 #include <QJsonArray>
-#include <QJsonValue>
 #include "Measure.h"
 
 class Ingredient
@@ -22,7 +19,7 @@ public:
     explicit Ingredient(const QJsonObject &ingredient);
     ~Ingredient();
 
-    QJsonObject ingredientToJson();
+    [[nodiscard]] QJsonObject ingredientToJson() const;
 };
 
 

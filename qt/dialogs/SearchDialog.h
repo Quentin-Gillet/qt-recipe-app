@@ -2,10 +2,9 @@
 // Created by Quentin Gillet on 25/03/2023.
 //
 
-#ifndef COOKINGAPP_SEARCHDIALOG_H
-#define COOKINGAPP_SEARCHDIALOG_H
+#ifndef COOKING_APP_SEARCH_DIALOG_H
+#define COOKING_APP_SEARCH_DIALOG_H
 
-#include <Qt>
 #include <QLabel>
 #include <QRadioButton>
 #include <QCheckBox>
@@ -45,12 +44,14 @@ public:
 
     QPushButton* closeButton;
     QPushButton* searchButton;
+
 signals:
     void performSearch();
+
 private slots:
     void searchButtonClicked();
-    void maxCaloriesValueChanged(int value);
+    void maxCaloriesValueChanged(int value) const;
 };
 
 
-#endif //COOKINGAPP_SEARCHDIALOG_H
+#endif

@@ -2,8 +2,8 @@
 // Created by Quentin Gillet on 27/03/2023.
 //
 
-#ifndef COOKINGAPP_RECIPEFAVOURITE_H
-#define COOKINGAPP_RECIPEFAVOURITE_H
+#ifndef COOKING_APP_RECIPE_FAVOURITE_H
+#define COOKING_APP_RECIPE_FAVOURITE_H
 
 
 #include <QJsonObject>
@@ -13,7 +13,7 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QStandardPaths>
-#include "../scrapper/Scrapper.h"
+#include "scrapper/Scrapper.h"
 
 class RecipeFavourite
 {
@@ -32,4 +32,4 @@ private:
 };
 
 
-#endif //COOKINGAPP_RECIPEFAVOURITE_H
+#endif

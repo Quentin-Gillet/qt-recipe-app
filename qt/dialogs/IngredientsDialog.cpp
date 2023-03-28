@@ -4,27 +4,27 @@
 
 #include "IngredientsDialog.h"
 
-IngredientsDialog::IngredientsDialog(Recipe* recipe, QWidget* parent)
+IngredientsDialog::IngredientsDialog(Recipe *recipe, QWidget *parent) : QDialog(parent)
 {
     this->recipe = recipe;
 
     setWindowTitle("Ingredients needed");
     setModal(true);
-    QList<Ingredient*> ingredients = recipe->ingredients;
-    setFixedSize(400, ingredients.count() * 33 + 20);
+    QList<Ingredient *> ingredients = recipe->ingredients;
+    setFixedSize(400, (int) ingredients.count() * 33 + 15);
 
-    QBoxLayout* layout = new QBoxLayout(QBoxLayout::TopToBottom);
+    auto *layout = new QBoxLayout(QBoxLayout::TopToBottom);
     setLayout(layout);
 
-    QBoxLayout* servingLayout = new QBoxLayout(QBoxLayout::LeftToRight);
-    QLabel* servingLabel = new QLabel("Servings: ");
+    auto *servingLayout = new QBoxLayout(QBoxLayout::LeftToRight);
+    auto *servingLabel = new QLabel("Servings: ");
     servingLabel->setStyleSheet("QLabel {text-decoration: underline; font-weight: bold;}");
     servingLayout->addWidget(servingLabel);
     personCount = new QSpinBox(this);
     personCount->setMinimum(0);
     personCount->setValue(recipe->servings);
     personCount->setSingleStep(1);
-    personCount->setSuffix("person(s)");
+    personCount->setSuffix(" person(s)");
     servingLayout->addWidget(personCount);
     layout->addLayout(servingLayout);
 
@@ -35,12 +35,8 @@ IngredientsDialog::IngredientsDialog(Recipe* recipe, QWidget* parent)
     updateIngredients();
     layout->addLayout(ingredientsLayout);
 
-    QBoxLayout* buttonLayout = new QBoxLayout(QBoxLayout::RightToLeft);
-    QPushButton* closeButton = new QPushButton("Close");
-    QPushButton* toFileButton = new QPushButton("Save to file");
-    buttonLayout->addWidget(closeButton);
-    buttonLayout->addWidget(toFileButton);
-    layout->addLayout(buttonLayout);
+    auto *closeButton = new QPushButton("Close");
+    layout->addWidget(closeButton, Qt::AlignHCenter);
 
     connect(closeButton, &QPushButton::clicked,
             this, &QDialog::reject);
@@ -49,14 +45,14 @@ IngredientsDialog::IngredientsDialog(Recipe* recipe, QWidget* parent)
 void IngredientsDialog::updateIngredients()
 {
     Tools::ClearLayout(this->ingredientsLayout);
-    QList<Ingredient*> ingredients = this->recipe->ingredients;
-    for(int i = 0; i < ingredients.count(); i++)
+    QList<Ingredient *> ingredients = this->recipe->ingredients;
+    for (int i = 0; i < ingredients.count(); i++)
     {
-        Ingredient* ingredient = ingredients[i];
-        Measure* measure = ingredient->measure;
-        double ingredientMesure = ((double)personCount->value() / recipe->servings) * measure->amount;
-        QLabel* ingredientLabel = new QLabel("- " + QString::number(ingredientMesure, 'f', 2) + measure->unitShort
-                                             + " of " + ingredient->name);
+        Ingredient *ingredient = ingredients[i];
+        Measure *measure = ingredient->measure;
+        double ingredientMesure = ((double) personCount->value() / recipe->servings) * measure->amount;
+        auto *ingredientLabel = new QLabel("- " + QString::number(ingredientMesure, 'f', 2) + measure->unitShort
+                                           + " of " + ingredient->name);
         ingredientsLayout->addWidget(ingredientLabel);
     }
 }

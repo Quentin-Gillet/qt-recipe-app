@@ -9,12 +9,15 @@ void Tools::ClearLayout(QLayout *layout)
     if (layout == nullptr)
         return;
     QLayoutItem *item;
-    while((item = layout->takeAt(0))) {
-        if (item->layout()) {
+    while ((item = layout->takeAt(0)))
+    {
+        if (item->layout())
+        {
             ClearLayout(item->layout());
             item->layout()->deleteLater();
         }
-        if (item->widget()) {
+        if (item->widget())
+        {
             item->widget()->deleteLater();
         }
         delete item;

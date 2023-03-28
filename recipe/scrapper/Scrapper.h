@@ -5,7 +5,7 @@
 #ifndef COOKING_PROJECT_SCRAPPER_H
 #define COOKING_PROJECT_SCRAPPER_H
 
-#include "../recipe/Recipe.h"
+#include "../Recipe.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QString>
@@ -13,7 +13,6 @@
 #include <QtNetwork/QNetworkRequest>
 #include <QtNetwork/QNetworkReply>
 #include <QEventLoop>
-#include <vector>
 
 #define API_KEY "f53f8f8706404344bde83f7abb700593"
 #define BASE_URL "https://api.spoonacular.com/recipes/"

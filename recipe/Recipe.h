@@ -2,20 +2,18 @@
 // Created by Quentin Gillet on 12/03/2023.
 //
 
-#ifndef COOKING_PROJECT_RECIPE_H
-#define COOKING_PROJECT_RECIPE_H
+#ifndef COOKING_APP_RECIPE_H
+#define COOKING_APP_RECIPE_H
 
-#include <string>
-#include <vector>
 #include <QPixmap>
 #include <QObject>
-#include "Ingredient.h"
-#include "Instruction.h"
+#include "elements/Ingredient.h"
+#include "elements/Instruction.h"
 #include "../qt/tools/FileDownloader.h"
 
-class Recipe: public QObject
+class Recipe : public QObject
 {
-    Q_OBJECT
+Q_OBJECT
 public:
     bool vegetarian;
     bool vegan;
@@ -31,22 +29,24 @@ public:
     int id;
     bool isFavourite;
 
-    QList<Ingredient*> ingredients;
-    QList<Instruction*> instructions;
+    QList<Ingredient *> ingredients;
+    QList<Instruction *> instructions;
 
-    FileDownloader* fileDownloader;
+    FileDownloader *fileDownloader;
 
     explicit Recipe(const QJsonObject &recipeJson);
-    ~Recipe();
-    QJsonObject recipeToJson();
-    void startImageDownload(QObject* object, const char* slot);
+    ~Recipe() override;
 
+    QJsonObject recipeToJson();
+    void startImageDownload(QObject *object, const char *slot);
     QString getInstructionString();
+
 private slots:
     void imageDownloaded();
+
 signals:
-    void imageLoaded(const QPixmap&);
+    void imageLoaded(const QPixmap &);
 };
 
 
-#endif //COOKING_PROJECT_RECIPE_H
+#endif

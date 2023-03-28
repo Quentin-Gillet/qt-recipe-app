@@ -6,35 +6,33 @@
 #include "RecipeCard.h"
 
 
-RecipeCard::RecipeCard(Recipe* recipe, QWidget *parent) :
+RecipeCard::RecipeCard(Recipe *recipe, QWidget *parent) :
         QWidget(parent)
 {
     this->recipe = recipe;
 
-    auto* layout = new QBoxLayout(QBoxLayout::TopToBottom);
+    auto *layout = new QBoxLayout(QBoxLayout::TopToBottom);
     setLayout(layout);
 
-    auto* image = new QClickableImage(this);
+    auto *image = new QClickableImage(this);
     recipe->startImageDownload(image, SLOT(updatePixmap(QPixmap)));
     connect(image, &QClickableImage::clicked,
-                     this, &RecipeCard::clicked);
+            this, &RecipeCard::clicked);
 
     layout->addWidget(image);
 }
 
 void RecipeCard::clicked()
 {
-    RecipeDetails* recipeDetails = new RecipeDetails(this->recipe);
+    auto *recipeDetails = new RecipeDetails(this->recipe);
     recipeDetails->show();
 }
 
-void RecipeCard::setText(QString& text)
+void RecipeCard::setText(const QString &in)
 {
-    this->text = text;
+    this->text = in;
     this->text.resize(45);
     auto *label = new QLabel(this->text);
     label->setStyleSheet("QLabel {font-size: 14px;}");
     this->layout()->addWidget(label);
 }
-
-RecipeCard::~RecipeCard(){}

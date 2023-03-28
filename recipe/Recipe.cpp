@@ -8,6 +8,7 @@
 Recipe::Recipe(const QJsonObject &recipeJson)
 {
     RecipeFavourite recipeFavourite;
+    this->fileDownloader = new FileDownloader();
 
     this->vegetarian = recipeJson["vegetarian"].toBool();
     this->vegan = recipeJson["vegan"].toBool();
@@ -24,7 +25,7 @@ Recipe::Recipe(const QJsonObject &recipeJson)
     for (int i = 0; i < ingredientsJson.count(); i++)
     {
         QJsonObject ingredientJson = ingredientsJson[i].toObject();
-        Ingredient* ingredient = new Ingredient(ingredientJson);
+        Ingredient *ingredient = new Ingredient(ingredientJson);
         this->ingredients.append(ingredient);
     }
 
@@ -32,7 +33,7 @@ Recipe::Recipe(const QJsonObject &recipeJson)
     for (int i = 0; i < instructionsJson.count(); i++)
     {
         QJsonObject instructionJson = instructionsJson[i].toObject();
-        Instruction* ingredient = new Instruction(instructionJson);
+        Instruction *ingredient = new Instruction(instructionJson);
         this->instructions.append(ingredient);
     }
 }
@@ -51,7 +52,7 @@ QJsonObject Recipe::recipeToJson()
     recipeJson.insert("veryHealthy", this->veryHealthy);
 
     QJsonArray ingredientsJson;
-    for(int i = 0; i < this->ingredients.count(); i++)
+    for (int i = 0; i < this->ingredients.count(); i++)
     {
         QJsonObject ingredientJson = this->ingredients[i]->ingredientToJson();
         ingredientsJson.push_back(ingredientJson);
@@ -59,7 +60,7 @@ QJsonObject Recipe::recipeToJson()
     recipeJson.insert("extendedIngredients", ingredientsJson);
 
     QJsonArray instructionsJson;
-    for(int i = 0; i < this->instructions.count(); i++)
+    for (int i = 0; i < this->instructions.count(); i++)
     {
         QJsonObject instructionJson = this->instructions[i]->instructionToJson();
         instructionsJson.push_back(instructionJson);
@@ -73,19 +74,19 @@ QString Recipe::getInstructionString()
 {
     QString instructionsString;
 
-    for(int i = 0; i < this->instructions.count(); i++)
+    for (int i = 0; i < this->instructions.count(); i++)
     {
-        Instruction* instruction = this->instructions[i];
-        if(!instruction->name.isEmpty())
+        Instruction *instruction = this->instructions[i];
+        if (!instruction->name.isEmpty())
         {
             instructionsString.append("<b> " + QString::number(i + 1) + " - " + instruction->name + "</b>");
             instructionsString.append("<blockquote>");
         }
-        for(int j = 0; j < instruction->instructionSteps.count(); j++)
+        for (int j = 0; j < instruction->instructionSteps.count(); j++)
         {
             instructionsString.append("-> " + instruction->instructionSteps[j] + "<br/>");
         }
-        if(!instruction->name.isEmpty())
+        if (!instruction->name.isEmpty())
             instructionsString.append("</blockquote>");
     }
 
@@ -93,10 +94,10 @@ QString Recipe::getInstructionString()
 }
 
 
-void Recipe::startImageDownload(QObject* object, const char* slot)
+void Recipe::startImageDownload(QObject *object, const char *slot)
 {
     QUrl qUrl(this->imageUrl);
-    fileDownloader = new FileDownloader(qUrl, this);
+    this->fileDownloader->downloadFile(qUrl);
 
     connect(fileDownloader, &FileDownloader::downloaded,
             this, &Recipe::imageDownloaded);

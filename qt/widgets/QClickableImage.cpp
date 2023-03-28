@@ -5,7 +5,7 @@
 #include "QClickableImage.h"
 
 
-QClickableImage::QClickableImage(QWidget *parent)
+QClickableImage::QClickableImage(QWidget *parent) : QLabel(parent)
 {
     this->setScaledContents(true);
 
@@ -18,11 +18,11 @@ QClickableImage::QClickableImage(QWidget *parent)
 
 void QClickableImage::mousePressEvent(QMouseEvent *event)
 {
-    if(!this->isLoading)
-        emit this->clicked();
+    if (!this->isLoading)
+            emit this->clicked();
 }
 
-void QClickableImage::updatePixmap(const QPixmap& pixmap)
+void QClickableImage::updatePixmap(const QPixmap &pixmap)
 {
     this->loadingGif->stop();
     delete this->loadingGif;

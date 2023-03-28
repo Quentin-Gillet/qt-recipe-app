@@ -2,8 +2,8 @@
 // Created by Quentin Gillet on 26/03/2023.
 //
 
-#ifndef COOKINGAPP_QICONLABEL_H
-#define COOKINGAPP_QICONLABEL_H
+#ifndef COOKING_APP_QICON_LABEL_H
+#define COOKING_APP_QICON_LABEL_H
 
 
 #include <QLabel>
@@ -22,4 +22,4 @@ private:
 };
 
 
-#endif //COOKINGAPP_QICONLABEL_H
+#endif

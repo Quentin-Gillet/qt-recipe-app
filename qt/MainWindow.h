@@ -1,5 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef COOKING_APP_MAIN_WINDOW_H
+#define COOKING_APP_MAIN_WINDOW_H
 
 #include <QMainWindow>
 #include <QLabel>
@@ -20,8 +20,8 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    explicit MainWindow(QWidget *parent = nullptr);
+    ~MainWindow() override;
 
 private:
     Ui::MainWindow *ui;
@@ -38,4 +38,4 @@ public slots:
     void performSearch(const QString& result, const QString& mealDiet,
                        int maxCalories, bool ignorePantry, int resultsCount);
 };
-#endif // MAINWINDOW_H
+#endif //COOKING_APP_MAIN_WINDOW_H
