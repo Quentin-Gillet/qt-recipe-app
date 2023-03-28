@@ -7,18 +7,24 @@
 RecipeGrid::RecipeGrid(QWidget *parent) :
     QWidget(parent)
 {
-    QGridLayout* gridLayout = new QGridLayout(this);
-    setLayout(gridLayout);
+    QWidget* scrollWidget = new QWidget(this);
+    this->gridLayout = new QGridLayout(scrollWidget);
+    this->gridLayout->setSizeConstraint(QLayout::SetFixedSize);
+
+    scrollWidget->setLayout(this->gridLayout);
+    QScrollArea* scrollArea = new QScrollArea(this);
+    scrollArea->setWidget(scrollWidget);
+    scrollArea->setFixedSize(1030, 650);
 }
 
 void RecipeGrid::generateRecipeGrid(QList<Recipe*> recipes)
 {
     if(recipes.count() == 0)
     {
-        QLabel* errorLabel = new QLabel("There is no recipes !");
+        QLabel* errorLabel = new QLabel("No recipes found !");
         errorLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
         errorLabel->setStyleSheet("QLabel {font-size: 30px; color: red;}");
-        layout()->addWidget(errorLabel);
+        this->gridLayout->addWidget(errorLabel);
     }
 
     for(int i = 0; i < recipes.count(); i++)
@@ -26,12 +32,12 @@ void RecipeGrid::generateRecipeGrid(QList<Recipe*> recipes)
         Recipe* recipe = recipes[i];
         RecipeCard* card = new RecipeCard(recipe);
         card->setText(recipe->title);
-        QGridLayout* layout = qobject_cast<QGridLayout*>(this->layout());
-        layout->addWidget(card, i / 3, i % 3);
+        card->setFixedSize(this->width() / 3 - 15, this->height() / 3 - 15);
+        this->gridLayout->addWidget(card, i / 3, i % 3);
     }
 }
 
 void RecipeGrid::clearRecipeGrid()
 {
-    Tools::ClearLayout(this->layout());
+    Tools::ClearLayout(this->gridLayout);
 }

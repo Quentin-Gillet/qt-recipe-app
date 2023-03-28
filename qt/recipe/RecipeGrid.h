@@ -10,6 +10,7 @@
 #include <QBoxLayout>
 #include <QString>
 #include <QList>
+#include <QScrollArea>
 #include "../../scrapper/Scrapper.h"
 #include "../../recipe/Recipe.h"
 #include "../tools/Tools.h"
@@ -23,6 +24,8 @@ public:
     explicit RecipeGrid(QWidget *parent = nullptr);
     void generateRecipeGrid(QList<Recipe*>);
     void clearRecipeGrid();
+private:
+    QGridLayout* gridLayout;
 public slots:
     inline void refreshRecipeGrid()
     {

@@ -15,6 +15,7 @@
 #include <QButtonGroup>
 #include <QHBoxLayout>
 #include <QDialog>
+#include <QMessageBox>
 
 class SearchDialog: public QDialog
 {
@@ -38,7 +39,10 @@ public:
 
     QPushButton* closeButton;
     QPushButton* searchButton;
+signals:
+    void performSearch();
 private slots:
+    void searchButtonClicked();
     void maxCaloriesValueChanged(int value);
 };
 

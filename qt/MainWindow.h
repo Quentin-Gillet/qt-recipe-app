@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <QLabel>
 #include <QPushButton>
+#include <QMenuBar>
+#include <QMenu>
+#include <QAction>
 #include "recipe/RecipeGrid.h"
 #include "dialogs/SearchDialog.h"
 #include "../recipe/RecipeFavourite.h"
@@ -23,6 +26,11 @@ public:
 private:
     Ui::MainWindow *ui;
     RecipeGrid* recipeGrid;
+
+    QMenu* recipeMenu;
+    QAction* searchAction;
+    QAction* exploreAction;
+    QAction* favouriteAction;
 
 public slots:
     void displaySearchDialog();

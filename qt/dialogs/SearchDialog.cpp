@@ -45,9 +45,9 @@ SearchDialog::SearchDialog(QWidget *parent)
 
     searchLabel = new QLabel("Search query:");
     searchInput = new QLineEdit();
-    searchInput->setFocus();
     gridLayout->addWidget(searchLabel, 4, 0);
     gridLayout->addWidget(searchInput, 5, 0, 1, 4);
+    searchInput->setFocus();
 
     closeButton = new QPushButton("Close");
     searchButton = new QPushButton("Search");
@@ -60,12 +60,25 @@ SearchDialog::SearchDialog(QWidget *parent)
             this, &QDialog::reject);
 
     connect(searchButton, &QPushButton::clicked,
+            this, &SearchDialog::searchButtonClicked);
+
+    connect(this, &SearchDialog::performSearch,
             this, &QDialog::accept);
 }
 
 void SearchDialog::maxCaloriesValueChanged(int value)
 {
     caloriesCount->setText(QString::number(value));
+}
+
+void SearchDialog::searchButtonClicked()
+{
+    if(this->searchInput->text().isEmpty())
+    {
+        QMessageBox::critical(this,"Error","Please fill the search query");
+        return;
+    }
+    emit performSearch();
 }
 
 

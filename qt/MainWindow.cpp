@@ -3,10 +3,7 @@
 
 /*
  * TODO:
- * Fix search input not focus
- * Block searching if no search
  * Add checkbox (idk for what)
- * Add shortcut for menu bar
  * Add to text function for ingredients
  */
 
@@ -17,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     this->show();
 
-    this->setFixedSize(this->width(), this->height() - 30);
+    this->setFixedSize(this->width(), this->height());
 
     //Entry label
     QString labelText = "Welcome to your app cooking helper !";
@@ -28,11 +25,28 @@ MainWindow::MainWindow(QWidget *parent)
     label->show();
 
     //Recipe grid
-    QFrame* frame = this->ui->frame;
     recipeGrid = new RecipeGrid(this);
-    recipeGrid->setGeometry(frame->geometry());
+    recipeGrid->setGeometry(QRect(25, 50, 1030, 650));
     recipeGrid->refreshRecipeGrid();
     recipeGrid->show();
+
+    this->searchAction = new QAction("Search");
+    this->searchAction->setIcon(QIcon(":search.png"));
+    this->searchAction->setShortcut(QKeySequence::Find);
+
+    this->exploreAction = new QAction("Explore");
+    this->exploreAction->setIcon(QIcon(":explore.png"));
+    this->exploreAction->setShortcut(QKeySequence::Open);
+
+    this->favouriteAction = new QAction("Favourite");
+    this->favouriteAction->setIcon(QIcon(":favourite.png"));
+    this->favouriteAction->setShortcut(QKeySequence::New);
+
+    this->recipeMenu = menuBar()->addMenu("Recipe");
+    this->recipeMenu->addAction(this->searchAction);
+    this->recipeMenu->addAction(this->exploreAction);
+    this->recipeMenu->addSeparator();
+    this->recipeMenu->addAction(this->favouriteAction);
 
     //Refresh button
     connect(this->ui->refreshButton, &QPushButton::clicked,
@@ -40,13 +54,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Menu bar
     //Search
-    connect(this->ui->actionSearch, &QAction::triggered,
+    connect(this->searchAction, &QAction::triggered,
             this, &MainWindow::displaySearchDialog);
     //Discover
-    connect(this->ui->actionExplore, &QAction::triggered,
+    connect(this->exploreAction, &QAction::triggered,
             recipeGrid, &RecipeGrid::refreshRecipeGrid);
     //Favourite
-    connect(this->ui->actionFavourite, &QAction::triggered,
+    connect(this->favouriteAction, &QAction::triggered,
             this, &MainWindow::displayFavourites);
 
 }

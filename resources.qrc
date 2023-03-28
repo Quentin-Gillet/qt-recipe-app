@@ -4,5 +4,8 @@
     <file alias="recipe.jpg">assets/recipe.jpg</file>
     <file alias="clock.png">assets/clock.png</file>
     <file alias="persons.png">assets/persons.png</file>
+    <file alias="search.png">assets/search-icon.png</file>
+    <file alias="explore.png">assets/explore.png</file>
+    <file alias="favourite.png">assets/favourite.png</file>
   </qresource>
 </RCC>
