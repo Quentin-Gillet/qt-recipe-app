@@ -3,8 +3,6 @@
 
 /*
  * TODO:
- * Add checkbox (idk for what)
- * Add to text function for ingredients
  */
 
 MainWindow::MainWindow(QWidget *parent)
@@ -70,10 +68,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::performSearch(const QString& searchQuery, const QString& mealDiet, int maxCalories)
+void MainWindow::performSearch(const QString& searchQuery, const QString& mealDiet,
+                               int maxCalories, bool ignorePantry, int resultsCount)
 {
     Scrapper scrapper;
-    QList<Recipe*> recipes = scrapper.searchRecipe(searchQuery, mealDiet, maxCalories);
+    QList<Recipe*> recipes = scrapper.searchRecipe(searchQuery, mealDiet,
+                                                   maxCalories, ignorePantry, resultsCount);
     recipeGrid->clearRecipeGrid();
     recipeGrid->generateRecipeGrid(recipes);
 }
@@ -86,7 +86,9 @@ void MainWindow::displaySearchDialog()
     {
         performSearch(searchDialog->searchInput->text(),
                       searchDialog->dietRadioButtonGroup->checkedButton()->text(),
-                      searchDialog->maxCaloriesSlider->value());
+                      searchDialog->maxCaloriesSlider->value(),
+                      searchDialog->ignorePantry->isChecked(),
+                      searchDialog->maxResults->value());
     }
     delete searchDialog;
 }

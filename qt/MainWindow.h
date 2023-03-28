@@ -35,6 +35,7 @@ private:
 public slots:
     void displaySearchDialog();
     void displayFavourites();
-    void performSearch(const QString& result, const QString& mealDiet, int maxCalories);
+    void performSearch(const QString& result, const QString& mealDiet,
+                       int maxCalories, bool ignorePantry, int resultsCount);
 };
 #endif // MAINWINDOW_H

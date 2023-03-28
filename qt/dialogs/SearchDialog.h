@@ -8,6 +8,7 @@
 #include <Qt>
 #include <QLabel>
 #include <QRadioButton>
+#include <QCheckBox>
 #include <QSlider>
 #include <QLineEdit>
 #include <QGridLayout>
@@ -16,6 +17,7 @@
 #include <QHBoxLayout>
 #include <QDialog>
 #include <QMessageBox>
+#include <QSpinBox>
 
 class SearchDialog: public QDialog
 {
@@ -27,6 +29,7 @@ public:
     QLabel* mealDietLabel;
     QLabel* maxCaloriesLabel;
     QLabel* caloriesCount;
+    QLabel* maxResultLabel;
 
     QSlider* maxCaloriesSlider;
 
@@ -34,6 +37,9 @@ public:
     QRadioButton* defaultDiet;
     QRadioButton* veganDiet;
     QRadioButton* vegetarianDiet;
+    QCheckBox* ignorePantry;
+
+    QSpinBox* maxResults;
 
     QLineEdit* searchInput;
 

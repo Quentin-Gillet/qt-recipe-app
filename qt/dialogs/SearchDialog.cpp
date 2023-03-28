@@ -29,6 +29,9 @@ SearchDialog::SearchDialog(QWidget *parent)
     hBoxLayout->addWidget(veganDiet);
     gridLayout->addLayout(hBoxLayout, 1, 0, 1, 4);
 
+    ignorePantry = new QCheckBox("Ignore pantry");
+    gridLayout->addWidget(ignorePantry, 2, 0, 1, 4);
+
     maxCaloriesLabel = new QLabel("Set max colories per serving: (0 = ignore)");
     caloriesCount = new QLabel("0");
     maxCaloriesSlider = new QSlider(Qt::Orientation::Horizontal);
@@ -36,25 +39,34 @@ SearchDialog::SearchDialog(QWidget *parent)
     maxCaloriesSlider->setMinimum(0);
     maxCaloriesSlider->setValue(0);
     maxCaloriesSlider->setTickInterval(10);
-    gridLayout->addWidget(maxCaloriesLabel, 2, 0, 1, 3);
-    gridLayout->addWidget(maxCaloriesSlider, 3, 0, 1, 3);
-    gridLayout->addWidget(caloriesCount, 3, 3);
+    gridLayout->addWidget(maxCaloriesLabel, 3, 0, 1, 3);
+    gridLayout->addWidget(maxCaloriesSlider, 4, 0, 1, 3);
+    gridLayout->addWidget(caloriesCount, 4, 3);
+
+    maxResultLabel = new QLabel("Set maximum results");
+    maxResults = new QSpinBox(this);
+    maxResults->setSuffix(" result(s)");
+    maxResults->setMinimum(1);
+    maxResults->setMaximum(100);
+    maxResults->setValue(9);
+    gridLayout->addWidget(maxResultLabel, 5, 0, 1, 2);
+    gridLayout->addWidget(maxResults, 5, 2);
 
     connect(maxCaloriesSlider, &QSlider::valueChanged,
             this, &SearchDialog::maxCaloriesValueChanged);
 
     searchLabel = new QLabel("Search query:");
     searchInput = new QLineEdit();
-    gridLayout->addWidget(searchLabel, 4, 0);
-    gridLayout->addWidget(searchInput, 5, 0, 1, 4);
+    gridLayout->addWidget(searchLabel, 6, 0);
+    gridLayout->addWidget(searchInput, 7, 0, 1, 4);
     searchInput->setFocus();
 
     closeButton = new QPushButton("Close");
     searchButton = new QPushButton("Search");
     searchButton->setDefault(true);
     closeButton->setDefault(false);
-    gridLayout->addWidget(closeButton, 6, 2);
-    gridLayout->addWidget(searchButton, 6, 3);
+    gridLayout->addWidget(closeButton, 8, 2);
+    gridLayout->addWidget(searchButton, 8, 3);
 
     connect(closeButton, &QPushButton::clicked,
             this, &QDialog::reject);
