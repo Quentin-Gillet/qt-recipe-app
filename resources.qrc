@@ -7,5 +7,6 @@
     <file alias="search.png">assets/search-icon.png</file>
     <file alias="explore.png">assets/explore.png</file>
     <file alias="favourite.png">assets/favourite.png</file>
+    <file alias="icon.png">assets/icon.png</file>
   </qresource>
 </RCC>
