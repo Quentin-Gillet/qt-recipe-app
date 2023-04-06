@@ -1,0 +1,116 @@
+[
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/CookingApp_autogen/mocs_compilation.cpp.o -c /Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/mocs_compilation.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/mocs_compilation.cpp",
+  "output": "CMakeFiles/CookingApp.dir/CookingApp_autogen/mocs_compilation.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/main.cpp.o -c /Users/quentin/Developement/CookingApp/main.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/main.cpp",
+  "output": "CMakeFiles/CookingApp.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/qt/MainWindow.cpp.o -c /Users/quentin/Developement/CookingApp/qt/MainWindow.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/qt/MainWindow.cpp",
+  "output": "CMakeFiles/CookingApp.dir/qt/MainWindow.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/recipe/elements/Ingredient.cpp.o -c /Users/quentin/Developement/CookingApp/recipe/elements/Ingredient.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/recipe/elements/Ingredient.cpp",
+  "output": "CMakeFiles/CookingApp.dir/recipe/elements/Ingredient.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/recipe/elements/Measure.cpp.o -c /Users/quentin/Developement/CookingApp/recipe/elements/Measure.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/recipe/elements/Measure.cpp",
+  "output": "CMakeFiles/CookingApp.dir/recipe/elements/Measure.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/recipe/Recipe.cpp.o -c /Users/quentin/Developement/CookingApp/recipe/Recipe.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/recipe/Recipe.cpp",
+  "output": "CMakeFiles/CookingApp.dir/recipe/Recipe.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/recipe/scrapper/Scrapper.cpp.o -c /Users/quentin/Developement/CookingApp/recipe/scrapper/Scrapper.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/recipe/scrapper/Scrapper.cpp",
+  "output": "CMakeFiles/CookingApp.dir/recipe/scrapper/Scrapper.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/qt/recipe/RecipeCard.cpp.o -c /Users/quentin/Developement/CookingApp/qt/recipe/RecipeCard.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/qt/recipe/RecipeCard.cpp",
+  "output": "CMakeFiles/CookingApp.dir/qt/recipe/RecipeCard.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/qt/widgets/QClickableImage.cpp.o -c /Users/quentin/Developement/CookingApp/qt/widgets/QClickableImage.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/qt/widgets/QClickableImage.cpp",
+  "output": "CMakeFiles/CookingApp.dir/qt/widgets/QClickableImage.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/qt/tools/FileDownloader.cpp.o -c /Users/quentin/Developement/CookingApp/qt/tools/FileDownloader.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/qt/tools/FileDownloader.cpp",
+  "output": "CMakeFiles/CookingApp.dir/qt/tools/FileDownloader.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/qt/recipe/RecipeGrid.cpp.o -c /Users/quentin/Developement/CookingApp/qt/recipe/RecipeGrid.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/qt/recipe/RecipeGrid.cpp",
+  "output": "CMakeFiles/CookingApp.dir/qt/recipe/RecipeGrid.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/qt/tools/Tools.cpp.o -c /Users/quentin/Developement/CookingApp/qt/tools/Tools.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/qt/tools/Tools.cpp",
+  "output": "CMakeFiles/CookingApp.dir/qt/tools/Tools.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/qt/dialogs/SearchDialog.cpp.o -c /Users/quentin/Developement/CookingApp/qt/dialogs/SearchDialog.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/qt/dialogs/SearchDialog.cpp",
+  "output": "CMakeFiles/CookingApp.dir/qt/dialogs/SearchDialog.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/qt/recipe/RecipeDetails.cpp.o -c /Users/quentin/Developement/CookingApp/qt/recipe/RecipeDetails.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/qt/recipe/RecipeDetails.cpp",
+  "output": "CMakeFiles/CookingApp.dir/qt/recipe/RecipeDetails.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/qt/dialogs/IngredientsDialog.cpp.o -c /Users/quentin/Developement/CookingApp/qt/dialogs/IngredientsDialog.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/qt/dialogs/IngredientsDialog.cpp",
+  "output": "CMakeFiles/CookingApp.dir/qt/dialogs/IngredientsDialog.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/qt/widgets/QIconLabel.cpp.o -c /Users/quentin/Developement/CookingApp/qt/widgets/QIconLabel.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/qt/widgets/QIconLabel.cpp",
+  "output": "CMakeFiles/CookingApp.dir/qt/widgets/QIconLabel.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/recipe/RecipeFavourite.cpp.o -c /Users/quentin/Developement/CookingApp/recipe/RecipeFavourite.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/recipe/RecipeFavourite.cpp",
+  "output": "CMakeFiles/CookingApp.dir/recipe/RecipeFavourite.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/recipe/elements/Instruction.cpp.o -c /Users/quentin/Developement/CookingApp/recipe/elements/Instruction.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/recipe/elements/Instruction.cpp",
+  "output": "CMakeFiles/CookingApp.dir/recipe/elements/Instruction.cpp.o"
+},
+{
+  "directory": "/Users/quentin/Developement/CookingApp/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtNetwork.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -o CMakeFiles/CookingApp.dir/CookingApp_autogen/EWIEGA46WW/qrc_resources.cpp.o -c /Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/EWIEGA46WW/qrc_resources.cpp",
+  "file": "/Users/quentin/Developement/CookingApp/Debug/CookingApp_autogen/EWIEGA46WW/qrc_resources.cpp",
+  "output": "CMakeFiles/CookingApp.dir/CookingApp_autogen/EWIEGA46WW/qrc_resources.cpp.o"
+}
+]

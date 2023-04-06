@@ -1,3 +1,9 @@
 .idea
 cmake-build-debug
 CMakeLists.txt.user
+cmake-build-debug
+Debug
+.cache
+.DS_store
+.cmake
+*.cmake

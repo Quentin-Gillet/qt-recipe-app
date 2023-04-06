@@ -26,7 +26,7 @@ Scrapper::Scrapper()
     manager = new QNetworkAccessManager();
 }
 
-QList<Recipe *> Scrapper::searchRecipe(const QString &search, const QString &diet, int maxCalories,
+QList<Recipe *> Scrapper::searchRecipe(bool* success, const QString &search, const QString &diet, int maxCalories,
                                        bool ignorePantry, int count)
 {
     QString dietParameter = !diet.compare("All") ? "" : "&diet=" + diet.toLower();
@@ -39,6 +39,11 @@ QList<Recipe *> Scrapper::searchRecipe(const QString &search, const QString &die
                   + "&ignorePantry=" + QString::number(ignorePantry)
                   + "&fillIngredients=true";
     QString response = makeRequest(url);
+    if(response == "ERROR")
+    {
+      *success = false;
+      return QList<Recipe*> {};
+    }
     QJsonObject obj = objectFromString(response);
     QJsonArray recipes = obj["results"].toArray();
     QList<Recipe *> recipeList;
@@ -47,14 +52,20 @@ QList<Recipe *> Scrapper::searchRecipe(const QString &search, const QString &die
         auto *recipe = new Recipe(i.toObject());
         recipeList.append(recipe);
     }
+    *success = true;
     return recipeList;
 }
 
-QList<Recipe *> Scrapper::getRandomRecipe(int count)
+QList<Recipe *> Scrapper::getRandomRecipe(bool* success, int count)
 {
     //GENERATE URL WITH DEFINE API KEY AND BASE URL
     QString url = BASE_URL "random?number=" + QString::number(count) + "&apiKey=" API_KEY;
     QString response = makeRequest(url);
+    if(response == "ERROR")
+    {
+      *success = false;
+      return QList<Recipe*> {};
+    }
     QJsonObject obj = objectFromString(response);
     QJsonArray recipes = obj["recipes"].toArray();
     QList<Recipe *> recipeList;
@@ -63,24 +74,35 @@ QList<Recipe *> Scrapper::getRandomRecipe(int count)
         auto *recipe = new Recipe(i.toObject());
         recipeList.append(recipe);
     }
+    *success = true;
     return recipeList;
 }
 
 QString Scrapper::makeRequest(const QString &url)
 {
+    QTimer timer;
+    timer.setSingleShot(true);
+
     QEventLoop loop;
     request.setUrl(url);
     QNetworkReply *reply = manager->get(request);
+    connect(&timer, &QTimer::timeout, &loop, &QEventLoop::quit);
     connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
+    timer.start(5000);
     loop.exec();
-    //Error checking for reply
-    if (reply->error() == QNetworkReply::NoError)
-    {
-        return reply->readAll();
-    } else
-    {
-        qDebug() << "Error connecting to API..." << "\n";
-        qDebug() << reply->errorString() << "\n";
+
+    if (timer.isActive()) {
+      timer.stop();
+        // Error checking for reply
+        if (reply->error() == QNetworkReply::NoError) {
+            return reply->readAll();
+        } else {
+            qDebug() << "Error connecting to API..." << "\n";
+            qDebug() << reply->errorString() << "\n";
+        }
+    }else {
+      disconnect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
+      reply->abort();
     }
-    return "";
+    return "ERROR";
 }

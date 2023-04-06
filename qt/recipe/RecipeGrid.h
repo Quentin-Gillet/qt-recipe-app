@@ -10,6 +10,7 @@
 #include <QBoxLayout>
 #include <QString>
 #include <QList>
+#include <QLabel>
 #include <QScrollArea>
 #include "../../recipe/scrapper/Scrapper.h"
 #include "../../recipe/Recipe.h"
@@ -24,13 +25,21 @@ public:
     explicit RecipeGrid(QWidget *parent = nullptr);
     void generateRecipeGrid(QList<Recipe*>);
     void clearRecipeGrid();
+    void showMessage(const QString& message);
 private:
     QGridLayout* gridLayout;
 public slots:
     inline void refreshRecipeGrid()
     {
         Scrapper scrapper;
-        QList<Recipe*> recipes = scrapper.getRandomRecipe(9);
+        bool success;
+        QList<Recipe*> recipes = scrapper.getRandomRecipe(&success, 9);
+        if(!success)
+        {
+          clearRecipeGrid();
+          showMessage("Error while loading recipes from API. Try again later");
+          return;
+        }
 
         clearRecipeGrid();
         generateRecipeGrid(recipes);

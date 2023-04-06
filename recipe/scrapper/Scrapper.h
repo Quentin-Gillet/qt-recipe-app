@@ -13,6 +13,7 @@
 #include <QtNetwork/QNetworkRequest>
 #include <QtNetwork/QNetworkReply>
 #include <QEventLoop>
+#include <QTimer>
 
 #define API_KEY "f53f8f8706404344bde83f7abb700593"
 #define BASE_URL "https://api.spoonacular.com/recipes/"
@@ -20,8 +21,8 @@
 class Scrapper: public QObject
 {
 public:
-    QList<Recipe*> getRandomRecipe(int count = 9);
-    QList<Recipe*> searchRecipe(const QString& search, const QString& diet, int maxCalories, bool ignorePantry, int count = 9);
+    QList<Recipe*> getRandomRecipe(bool* success, int count = 9);
+    QList<Recipe*> searchRecipe(bool* success, const QString& search, const QString& diet, int maxCalories, bool ignorePantry, int count = 9);
     static QJsonObject objectFromString(const QString& in);
     Scrapper();
 private:
